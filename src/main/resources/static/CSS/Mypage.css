@@ -1,0 +1,22 @@
+
+    #top-title{
+        font-size:36px;
+        margin-left:20%;
+        margin-right:20%;
+        }
+        
+        #top-title hr{
+        border:2px solid gray;
+        }
+        #middle-title{
+            font-size:28px;
+            margin-left:10%;
+            margin-right: 10%; 
+            margin-top:10%;
+        }
+        #middle-content{
+            font-size:15px;
+          }
+        #table-menu{
+            font-size:22px;
+        }

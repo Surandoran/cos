@@ -1,0 +1,209 @@
+/* CSCenter.css */
+#CSHeader{
+    margin-top : 70px;
+ } 
+#CS1{
+    width: 250px;
+    height: 250px;
+    border:1px solid rgba(128, 128, 128, 0.6);
+}
+.CSMenu{
+    text-decoration: none; 
+    color:black; 
+    border: 1px solid gray; 
+    border-radius: 5px;
+}
+.CSMenu2{
+    color:gray; 
+    font-size:80px; 
+    position: relative; 
+    top:30px;
+}
+.CSList{
+    display: flex; 
+    flex-direction: row; 
+    position: relative; 
+    top:10px
+}
+.CSList2{
+    text-decoration: none;
+    color: black;
+}
+.CSBottom2{
+    width: 550px; 
+    height: 300px; 
+    border-radius: 15px; 
+    background-color: rgba(169, 169, 169, 0.205); 
+    position: relative;
+    top:20px; left:110px;
+}
+
+/* PersonalQuestion.css */
+#head{
+    border-bottom: 1px solid gray; 
+    position: relative; 
+    width: 1200px; 
+    left: 50px; 
+    top: 30px;
+}
+.Table{
+    position: relative; 
+    top: 100px; 
+    margin-right: auto; 
+    margin-left: auto; 
+    text-align: center; 
+    font-size : 22px;
+}
+.center{
+    font-size: 36px; 
+    font-weight: 800; 
+    width: 1200px;
+}
+.td1{
+    height: 100px;
+}
+.td2{
+    text-align: left; 
+    height: 100px; 
+    border-top: 1px solid gray; 
+    border-bottom:1px solid gray;
+}
+.td3{
+    text-align: left; height: 500px
+}
+.td4{
+    height: 150px;
+}
+.td5{
+    text-align: left; height: 200px; border-top: 1px solid gray; border-bottom:1px solid gray
+}
+.sel1{
+    width: 150px; position: relative; left: 200px; top:320px
+}
+.inp{
+    position: absolute; width: 700px; height: 500px; top: 500px; right: 410px;
+}
+.table2{
+    width: 900px; height: 100px; position: relative; left: 200px; bottom: 45px;
+}
+.td6{
+    font-size: 16px;
+}
+.inp2{
+    height: 16px; width: 16px;
+}
+.inp3{
+
+}
+#td7{
+    width: 100px;
+}
+.td8{
+    font-size: 16px;
+}
+.inp4{
+    height: 16px; width: 16px;
+}
+
+
+
+/* Location.css */
+.SubTitle{
+    margin-top: 70px;
+    display:flex;
+    justify-content:center;
+}
+
+.LocationText{
+    margin-top: 20px;
+    display:flex;
+    justify-content:center;
+}
+
+#locationimg{
+    margin : 50px 0px 0px 70px;
+}
+
+
+
+/* FAQ.css */
+#FAQHeader{
+    margin-top : 70px;
+ } 
+ #FAQMain{
+    margin-top : 50px;
+    font-size: 40px;
+ }
+
+ 
+ .FAQSearch{
+    text-align: left; 
+    width:270px; 
+    border: 1px solid gray;
+    border-radius: 5px; 
+    border-color: gray;
+    background-color: white; 
+    padding-right: 30px;
+ }
+ #FAQSearchbox{
+    text-align: center; 
+    justify-content: center;
+ }
+
+.FAQList{
+    text-decoration: none; 
+    color: black;
+    font-size: 25px;
+ }
+ .FAQ-level1{
+    padding: 0px;
+    margin-top: 30px;
+    margin-bottom: 400px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 50px;
+    line-height: 50px;
+    text-align: justify;
+    font-size: 20px;
+}
+.FAQ-level1>li{
+    width: 100%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.425);
+}
+.FAQ-level1>li>a{
+    text-decoration: none; 
+    color: black;
+}
+
+.FAQ-level2{
+    list-style: none;
+    padding: 0px;
+    display: none;
+}
+
+#check:checked ~ .FAQ-level2 {
+    display: block;
+}
+#check ~ label{
+    cursor: pointer;
+}
+#check2:checked ~ .FAQ-level2 {
+    display: block;
+}
+#check2 ~ label{
+    cursor: pointer;
+}
+#check3:checked ~ .FAQ-level2 {
+    display: block;
+}
+#check3 ~ label{
+    cursor: pointer;
+}
+#check4:checked ~ .FAQ-level2 {
+    display: block;
+}
+#check4 ~ label{
+    cursor: pointer;
+}

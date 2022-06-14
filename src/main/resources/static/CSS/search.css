@@ -1,0 +1,35 @@
+/*검색창*/
+#search{
+    border-bottom: 1px solid #C0C0C0;
+    margin-top : 70px;
+
+}
+#searchbox{
+   text-align: center; 
+   justify-content: center;
+}
+#searchbox2{
+    text-align: left;
+    justify-content: left;
+}
+#searchbox>input{
+    width: 442px;
+    height: 40px;
+    margin-top: 100px;
+    padding-right: 40px;
+}
+.searchicon{
+    position: relative;
+    right:40px;
+}
+.search-under
+{
+   text-align: center; 
+   margin-top:50px; 
+   font-size: 20px;
+}
+
+.search-add{
+   text-decoration: none;
+   color: black;
+}

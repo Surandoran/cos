@@ -1,0 +1,274 @@
+@font-face{
+	src: url("font/BMDOHYEON_ttf.ttf");
+    font-family: "Jua"; 
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Jua";
+}
+button a {
+    text-decoration: none;
+    color: white;
+}
+.nav-var{
+    display: flex;
+    width: 80px;
+    min-height: 100vh;
+    background-color: #c8cfa5;
+    color: white;
+    flex-direction:column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.menu-var{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.menu-var button{
+    border: none;
+    background-color: #c8cfa5;
+    color: white;
+    margin-bottom: 50px;
+}
+.category{
+    display: flex;
+    justify-content: center;
+}
+.category button{
+    border: none;
+    background-color: #c8cfa5;
+    color: white;
+    font-size: 25px;
+}
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 80px;
+    background-color: rgb(200, 207, 165);
+    transition: 0.5s;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+
+  }
+  .side-menu>a{
+    position: absolute; 
+    top: 20px; 
+    left: 30px;
+  }
+  .side-menu-list button {
+    margin: 5px 15px;
+    border: none;
+    background: none;
+    width: 120px;
+    color: white;
+    z-index: 1;
+    
+  }
+  .side-menu-list {
+    flex-direction: column;
+    align-items: stretch;
+    align-items: center;
+    display: none;
+  }
+main{
+    position: relative;
+    left: 60px;
+    top: 0px;
+    margin-bottom: 70px;
+    z-index: 1;
+  
+}
+.main-side{
+    list-style-type: none;
+}
+.main-side li{
+    margin-bottom: 50px;
+}
+
+video {
+    width: 100%;
+  }
+
+footer{
+    border-top: 1px solid #C0C0C0;
+    margin-top: 200px;
+    padding-top: 50px;
+}
+.fot-a a{
+    text-decoration: none;
+    color: black;
+}
+.fot-a{ 
+    margin-top: 15px;
+}
+.Messenger {
+    margin-top: 15px;
+}
+.Messenger a{
+    font-size: 30px;
+    text-decoration: none;
+    color: gray;
+    margin-left: 15px;
+}
+.first-line{
+    display: flex;
+    justify-content: space-between;
+}
+.second-line{
+    margin-bottom: 30px;
+}
+.text{
+    margin-top: 40px;
+}
+.people{
+    display: flex;
+    justify-content: space-between;
+}
+.talk{
+    margin-left: 130px;
+}
+#success{
+    border-bottom: 3px solid #C0C0C0;
+    margin-bottom: 20px;
+}
+.singup-menu{
+    font-size: 16px;
+    font-family: "본고딕";
+}
+.menu-btn{
+    background-color: rgb(52, 152, 219);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+}
+.text-input{
+    width: 320px;
+}
+#sign-btn{
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(200, 207, 165);
+    color: white;
+    height: 45px;
+    width: 100px;
+}
+
+#sign-btn:hover{
+    box-shadow: 3px 3px 3px 3px gray;
+}
+.add-btn{
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.sign-view{
+    display: flex;
+    justify-content: center;
+}
+.login-id{
+    border-bottom: 1px solid #C0C0C0;
+}
+.login-etc{
+    color: gray;
+}
+.login-etc a{
+    text-decoration: none;
+    color: gray;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.log-btn{
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(200, 207, 165);
+    color: white;
+    height: 45px;
+    width: 400px;
+}
+.log-btn:hover{
+    box-shadow: 3px 3px 3px 3px gray;
+}
+.log-input{
+    border-bottom:2px solid #C0C0C0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.log-input td input{
+    width: 300px;
+    height: 40px;
+}
+.next-btn{
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: rgb(190, 190, 190);
+    border-radius: 10px;
+    color: white;
+    margin: 20px 30px;
+
+}
+.sub-name{
+    display: block;
+}
+#cate-btn{
+    border: none;
+    background-color: white;
+}
+
+
+
+/*검색창*/
+#search{
+    border-bottom: 1px solid #C0C0C0;
+    margin-top : 70px;
+
+}
+#searchbox{
+   text-align: center; 
+   justify-content: center;
+}
+#searchbox>input{
+    width: 442px;
+    height: 40px;
+    margin-top: 100px;
+    padding-right: 40px;
+}
+.searchicon{
+    position: relative;
+    right:40px;
+}
+.search-under
+{
+   text-align: center; 
+   margin-top:50px; 
+   font-size: 20px;
+}
+
+.search-add{
+   text-decoration: none;
+   color: black;
+}
+
+/* 제품 */
+.product-name{
+    display: flex;
+    border-bottom: 1px solid #C0C0C0;
+    margin-top: 70px;
+}

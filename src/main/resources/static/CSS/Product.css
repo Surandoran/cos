@@ -1,0 +1,135 @@
+/* 제품 */
+.product-name{
+    display: flex;
+    border-bottom: 1px solid #C0C0C0;
+    margin-top: 70px;
+}
+.sub-name{
+    display: block;
+}
+#cate-btn{
+    border: none;
+    background-color: white;
+}
+.네모안의엑스{
+width: 100px;
+height: 100px;
+}
+.d1{
+display: inline-block;
+width: 200px;
+height: 200px;
+margin-top: 100px;
+}
+.d2{
+display: inline-block;
+width: 900px;
+height: 900px;
+margin-left: 250px;
+}
+.d3{
+margin-left: 280px;
+height: 50px;
+margin-top: 50px;
+}
+.a1{
+display: flex; margin-left: 600px; margin-top: 60px; height: 100px; color:black; font-size: 30px;
+}
+.d4{
+margin-left: 400px ;
+}
+.inp1{
+width: 500px; height:30px;
+}
+.img1{
+width: 29px; height: 29px;
+}
+#sky{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px ;
+    margin-right: -4px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    border: 1px solid skyblue;
+    background-color: rgba(0,0,0,0);
+    color: skyblue;
+    padding: 5px;
+    }
+#pro-search{
+width :450px; 
+height:40px;
+}
+.search-main{
+display: flex;
+justify-content: center;
+margin-top: 70px;
+}
+.search-main button{
+height: 40px;
+border: none;
+background-color: white;
+}
+.search-main button i{
+color: gray;
+font-size: 20px;
+}
+.popular{
+display: flex;
+justify-content: space-around;
+margin-top: 70px;
+text-align: center;
+padding-bottom: 50px;
+border-bottom: 1px solid #C0C0C0;
+}
+
+.best{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+#pro-search{
+    width :450px; 
+    height:40px;
+}
+.search-main{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+.search-main button{
+    height: 40px;
+    border: none;
+    background-color: white;
+}
+.search-main button i{
+    color: gray;
+    font-size: 20px;
+}
+.popular{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 70px;
+    text-align: center;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #C0C0C0;
+}
+.best {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.best-review{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.review-date{
+    font-size: 10px;
+    font-weight: 100;
+}
+
+
