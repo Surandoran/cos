@@ -2,14 +2,11 @@ package com.example.cosmetic.dto;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
-@Entity
 public class MemberEntity {
 
-    @Id
     private Long code;
     private String name;
     private String id;

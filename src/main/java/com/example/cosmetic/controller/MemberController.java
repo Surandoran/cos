@@ -26,14 +26,21 @@ public class MemberController {
         return "members/Singup";
     }
 
-    @PostMapping(value = "/member/new")
+    @PostMapping(value = "/members/new")
     public String create(MemberEntity memberEntity){
         MemberDTO memberDTO1 = new MemberDTO();
+        memberDTO1.setName(memberEntity.getName());
         memberDTO1.setId(memberEntity.getId());
+        memberDTO1.setPw(memberEntity.getPw());
+        memberDTO1.setNickname(memberEntity.getNickname());
+        memberDTO1.setEmail(memberEntity.getEmail());
+        memberDTO1.setAddr(memberEntity.getAddr());
+        memberDTO1.setPhone(memberEntity.getPhone());
+        memberDTO1.setGender(memberEntity.getGender());
 
         memberService.join(memberDTO1);
 
-        return "redirectr:/";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/members")
