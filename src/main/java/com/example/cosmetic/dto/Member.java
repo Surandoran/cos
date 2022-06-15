@@ -1,10 +1,10 @@
 package com.example.cosmetic.dto;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -15,9 +15,10 @@ import javax.persistence.*;
         initialValue = 1,
         allocationSize = 1
 )
-@Table(name = "member_tbl")
-@Data
-public class MemberDTO {
+@Getter
+@Setter
+@ToString
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")

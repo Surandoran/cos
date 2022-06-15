@@ -1,7 +1,6 @@
 package com.example.cosmetic.repository;
 
-import com.example.cosmetic.dto.MemberDTO;
-import com.example.cosmetic.dto.MemberEntity;
+import com.example.cosmetic.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
@@ -18,28 +17,28 @@ public class JpaMemberRepository implements MemberRepository{
     }
 
     @Override
-    public MemberDTO save(MemberDTO memberDTO) {
-        em.persist(memberDTO);
-        return memberDTO;
+    public Member save(Member member) {
+        em.persist(member);
+        return member;
     }
 
     @Override
-    public Optional<MemberDTO> findByCode(Long code) {
-        MemberDTO memberDTO = em.find(MemberDTO.class, code);
-        return Optional.ofNullable(memberDTO);
+    public Optional<Member> findByCode(Long code) {
+        Member member = em.find(Member.class, code);
+        return Optional.ofNullable(member);
     }
 
     @Override
-    public Optional<MemberDTO> findById(String id) {
-        List<MemberDTO> result = em.createQuery("select m from member_entity m where m.id = :id", MemberDTO.class)
+    public Optional<Member> findById(String id) {
+        List<Member> result = em.createQuery("select m from Member m where m.id = :id", Member.class)
                 .setParameter("id",id)
                 .getResultList();
         return result.stream().findAny();
     }
 
     @Override
-    public List<MemberDTO> findAll() {
-        return em.createQuery("select m from member_entity m", MemberDTO.class)
+    public List<Member> findAll() {
+        return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
 }

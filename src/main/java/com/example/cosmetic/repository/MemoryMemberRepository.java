@@ -1,37 +1,39 @@
 package com.example.cosmetic.repository;
 
-import com.example.cosmetic.dto.MemberDTO;
+import com.example.cosmetic.dto.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
-    private static Map<Long, MemberDTO> store = new HashMap<>();
+    private static Map<Long, Member> store = new HashMap<>();
     private static Long sequence= 0L;
 
     @Override
-    public MemberDTO save(MemberDTO memberDTO) {
-        memberDTO.setCode(++sequence);
-        store.put(memberDTO.getCode(),memberDTO);
-        return memberDTO;
+    public Member save(Member member) {
+        member.setCode(++sequence);
+        store.put(member.getCode(), member);
+        return member;
     }
 
     @Override
-    public Optional<MemberDTO> findByCode(Long code) {
+    public Optional<Member> findByCode(Long code) {
 
         return Optional.ofNullable(store.get(code));
 
     }
 
     @Override
-    public Optional<MemberDTO> findById(String id) {
+    public Optional<Member> findById(String id) {
         return store.values().stream()
                 .filter(memberDTO -> memberDTO.getId().equals(id))
                 .findAny();
     }
 
     @Override
-    public List<MemberDTO> findAll() {
+    public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
 

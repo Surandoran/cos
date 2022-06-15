@@ -1,6 +1,6 @@
 package com.example.cosmetic.controller;
 
-import com.example.cosmetic.dto.MemberDTO;
+import com.example.cosmetic.dto.Member;
 import com.example.cosmetic.dto.MemberEntity;
 import com.example.cosmetic.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,25 +28,26 @@ public class MemberController {
 
     @PostMapping(value = "/members/new")
     public String create(MemberEntity memberEntity){
-        MemberDTO memberDTO1 = new MemberDTO();
-        memberDTO1.setName(memberEntity.getName());
-        memberDTO1.setId(memberEntity.getId());
-        memberDTO1.setPw(memberEntity.getPw());
-        memberDTO1.setNickname(memberEntity.getNickname());
-        memberDTO1.setEmail(memberEntity.getEmail());
-        memberDTO1.setAddr(memberEntity.getAddr());
-        memberDTO1.setPhone(memberEntity.getPhone());
-        memberDTO1.setGender(memberEntity.getGender());
+        Member member1 = new Member();
+        member1.setName(memberEntity.getName());
+        member1.setId(memberEntity.getId());
+        member1.setPw(memberEntity.getPw());
+        member1.setNickname(memberEntity.getNickname());
+        member1.setEmail(memberEntity.getEmail());
+        member1.setAddr(memberEntity.getAddr());
+        member1.setPhone(memberEntity.getPhone());
+        member1.setGender(memberEntity.getGender());
 
-        memberService.join(memberDTO1);
+        System.out.println(member1);
+        memberService.join(member1);
 
         return "redirect:/";
     }
 
     @GetMapping(value = "/members")
     public String list(Model model){
-        List<MemberDTO> memberDTOS = memberService.findMembers();
-        model.addAttribute("memberDTOS", memberDTOS);
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members", members);
         return "members/memberList";
     }
 }

@@ -1,6 +1,6 @@
 package com.example.cosmetic;
 
-import com.example.cosmetic.dto.MemberDTO;
+import com.example.cosmetic.dto.Member;
 import com.example.cosmetic.repository.MemoryMemberRepository;
 import com.example.cosmetic.service.MemberService;
 import org.junit.jupiter.api.AfterEach;
@@ -26,20 +26,20 @@ public class MemberServiceTest {
     @Test
     public void 회원가입() throws Exception {
         //Given
-        MemberDTO member = new MemberDTO();
+        Member member = new Member();
         member.setName("hello");
         //When
         Long saveCode = memberService.join(member);
         //Then
-        MemberDTO findMember = memberRepository.findByCode(saveCode).get();
+        Member findMember = memberRepository.findByCode(saveCode).get();
         assertEquals(member.getName(), findMember.getName());
     }
     @Test
     public void 중복_회원_예외() throws Exception {
         //Given
-        MemberDTO member1 = new MemberDTO();
+        Member member1 = new Member();
         member1.setName("spring");
-        MemberDTO member2 = new MemberDTO();
+        Member member2 = new Member();
         member2.setName("spring");
         //When
         memberService.join(member1);

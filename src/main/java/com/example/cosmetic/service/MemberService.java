@@ -1,14 +1,14 @@
 package com.example.cosmetic.service;
 
-import com.example.cosmetic.dto.MemberDTO;
+import com.example.cosmetic.dto.Member;
 import com.example.cosmetic.repository.MemberRepository;
-import com.example.cosmetic.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -19,27 +19,27 @@ public class MemberService {
     }
 
 
-    private void validateDuplicateMember(MemberDTO memberDTO){
-        memberRepository.findById(memberDTO.getId())
+    private void validateDuplicateMember(Member member){
+        memberRepository.findById(member.getId())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 아이디입니다.");
                 });
     }
 
     //회원가입
-    public Long join(MemberDTO memberDTO){
-        validateDuplicateMember(memberDTO);//중복회원검증
-        memberRepository.save(memberDTO);
-        return memberDTO.getCode();
+    public Long join(Member member){
+        validateDuplicateMember(member);//중복회원검증
+        memberRepository.save(member);
+        return member.getCode();
     }
 
     //전체 회원 조회
-    public List<MemberDTO> findMembers() {
+    public List<Member> findMembers() {
         return memberRepository.findAll();
     }
 
     //멤버 찾기
-    public Optional<MemberDTO> findOne(Long memberCode){
+    public Optional<Member> findOne(Long memberCode){
         return memberRepository.findByCode(memberCode);
     }
 }
