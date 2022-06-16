@@ -4,10 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
+
 public class ServiceCenterController {
 
     @GetMapping("/ServiceCenter/CSCenter")
     public String cscenter(){
+        System.out.println("TEST");
         return "ServiceCenter/CSCenter";
     }
 

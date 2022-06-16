@@ -116,7 +116,7 @@ public class MemberController {
         String nickname = req.getParameter("nickname");
 
         //아이디 중복 체크를 확인하기 위한 변수
-        boolean result = true;
+        boolean result = false;
         Long code;
 
         try{
