@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>COSVIEW</title>
 
     <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"-->
@@ -114,7 +115,7 @@
                 <script th:inline="javascript">
                     function fn_idChk() {
                         // request 파라미터에 userid 를 넣어서 서버단으로 보냄
-                        const params = {
+                        var params = {
                             userid: $('#userid').val()
                         }
 
@@ -129,7 +130,7 @@
                             success: function (result) {
 
                                 // json 방식으로 넘어온 데이터는 key : value 형식이기 때문에 result.result 로 해야 값을 가져올 수 있음
-                                const idChk = result.result
+                                var idChk = result.result
                                 if (idChk == false) {
                                     $('#idChk').attr("value", "N");
                                     alert("중복된 아이디예염! 다른걸로 ㄱㄱ");

@@ -1,10 +1,7 @@
 package com.example.cosmetic.dto;
 
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -23,7 +20,7 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
     @Column(name = "code")
-    private Long Code;
+    private Long code;
     @Column(name = "name")
     private String name;
     @Column(name = "id")
@@ -37,4 +34,23 @@ public class Member {
     private String phone;
     private String addr;
     private String gender;
+
+    public Member() {
+
+    }
+
+    public Member toEntity() {
+        return Member.builder()
+                .code(code)
+                .id(id)
+                .pw(pw)
+                .build();
+    }
+
+    @Builder
+    public Member(Long code ,String id ,String pw){
+        this.code = code;
+        this.id = id;
+        this.pw = pw;
+    }
 }

@@ -1,10 +1,14 @@
 package com.example.cosmetic.controller;
 
+import com.example.cosmetic.dto.Member;
+import com.example.cosmetic.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
+    private MemberService memberService;
 
     @GetMapping("/Login/id")
     public String id(){
@@ -36,8 +40,4 @@ public class LoginController {
         return "Login/reg_cancel";
     }
 
-    @GetMapping("/")
-    public String home(){
-        return "home";
-    }
 }
