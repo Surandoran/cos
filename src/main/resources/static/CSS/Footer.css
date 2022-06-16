@@ -1,7 +1,9 @@
 footer{
     border-top: 1px solid #C0C0C0;
     margin-top: 200px;
-    padding-top: 50px;
+    padding: 50px;
+    width: 100%;
+    margin: 0 auto;
 }
 .fot-a a{
     text-decoration: none;

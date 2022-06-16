@@ -100,12 +100,12 @@
 #top-title hr{
     border:2px solid gray;
 }
-#middle-title{
+.middle-title{
     font-size:28px;
     margin-left:10%;
     margin-right: 10%; 
     margin-top:10%;
 }
-#middle-content{
+.middle-content{
     font-size:15px;
   }

@@ -4,7 +4,55 @@ main{
     top: 0px;
     margin-bottom: 70px;
     z-index: 1;
+    margin-left: 1%;
 }
+#vision-space{
+    position: relative;
+    margin: 150px 0;
+  }
+  #vision-text{
+    position: absolute;
+    top: 25%;
+    left : 50%;
+
+  }
+  .talk{
+    margin-bottom: 150px;
+  }
+  #vision-text{
+    font-size: 2.5rem;
+  }
+  #value-space{
+    margin: 150px 0;
+  }
+  #value-space h1{
+    font-size: 2.5rem;
+    border-bottom: 1px solid #c0c0c0;
+    margin: 30px 0;
+  }
+  .one-time{
+    list-style: none;
+    padding: 0px;
+  }
+
+  .multiple-items{
+    width: 50%;
+  }
+  .multiple-items li img{
+    width: 60%;
+    height: 150px;
+  }
+  .multiple-items li{
+    width: 150px;
+    /* border: 1px solid gray; */
+  }
+  #product-slick{
+    display: flex;
+    justify-content: space-around;
+    margin: 150px 0;
+  }
+
+
 video {
     /* width: 97%; */
 }

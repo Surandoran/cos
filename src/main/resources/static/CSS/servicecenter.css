@@ -2,12 +2,12 @@
 #CSHeader{
     margin-top : 70px;
  } 
-#CS1{
+.CS1{
     width: 250px;
     height: 250px;
     border:1px solid rgba(128, 128, 128, 0.6);
 }
-.CSMenu{
+#CSMenu{
     text-decoration: none; 
     color:black; 
     border: 1px solid gray; 

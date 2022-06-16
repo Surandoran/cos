@@ -5,201 +5,207 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COSVIEW</title>
-    <link href="image/logo4.png" rel="shortcut icon" type="image/x-icon">
+    <link href="/image/logo4.png" rel="shortcut icon" type="/image/x-icon">
     <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../CSS/Product.css">
-    <link rel="stylesheet" href="../CSS/Footer.css">
-    <link rel="stylesheet" href="../CSS/Common.css">
-    <link rel="stylesheet" href="../CSS/nav.css">
+    <link rel="stylesheet" href="/CSS/Product.css">
+    <link rel="stylesheet" href="/CSS/Footer.css">
+    <link rel="stylesheet" href="/CSS/Common.css">
+    <link rel="stylesheet" href="/CSS/nav.css">
 <body>
-  <nav class="nav-var">
+<nav class="nav-var">
     <div class="logo" id="logo4">
-      <a href="../Home.html"><img src="../image/logo4.png" width="45" , height="45"></a>
+        <a href="/"><img src="/image/logo4.png" width="45" , height="45"></a>
     </div>
     <div class="category">
-      <button id="nav-btn" class="navbar-toggler collapsed" onclick="openNav()"><i class="fa-solid fa-bars "></i></button>
+        <button id="nav-btn" class="navbar-toggler collapsed" onclick="openNav()"><i class="fa-solid fa-bars "></i>
+        </button>
     </div>
     <div class="side-menu" id="mySidenav">
-      <a href="../Home.html"><img src="../image/logo2.png" width="100%" height="60px" alt=""></a>
-      <div class="side-menu-center">
-        <div class="side-menu-list" id="menu-list">
-         <ul class="main-side">
-          <li><a href="ProductMain.html">제품</a></li>
-           <li><a>코스뷰 이야기</a></li>
-           <li><a href="../ServiceCenter/CSCenter.html">고객센터</a></li>
-           <li><a>마이 페이지</a></li>
-         </ul>
+        <a href="/"><img src="/image/logo2.png" width="100%" height="60px" alt=""></a>
+        <div class="side-menu-center">
+            <div class="side-menu-list" id="menu-list">
+                <ul class="main-side">
+                    <li><a href="/Product/ProductMain">제품</a></li>
+                    <li><a>코스뷰 이야기</a></li>
+                    <li><a href="/ServiceCenter/CSCenter">고객센터</a></li>
+                    <li><a>마이 페이지</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
     <div class="menu-var">
-      <button><a href="../Login/login.html">로그인</a></button>
-      <button><a href="../Search/search.html"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+        <button><a href="/Login/login">로그인</a></button>
+        <button><a href="/Search/search"><i class="fa-solid fa-magnifying-glass"></i></a></button>
     </div>
-  </nav>
+</nav>
 
 
-
-
-
-  <style>
-    #line{
-      border: 0;
-      height: 2px;
-      width: 70%;
-      margin: 40px auto;
+<style>
+    .line {
+        border: 0;
+        height: 2px;
+        width: 70%;
+        margin: 40px auto;
     }
 
-        /* 제품정보 */
-    #PInformation{
-      margin-top: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* 제품정보 */
+    #PInformation {
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    #PText{
-      display: flex;
-      flex-direction: column;
-    }
-    #brand-name{
-      font-size: 14px;
-      color:gray;
-      margin: 8px 0 0 0;
-    }
-    #product-name{
-      font-size: 24px;
-      margin: 0;
-    }
-    
 
-        /* 별점 */
-    #star-text{
-      display: flex;
-      justify-content: center;
+    #PText {
+        display: flex;
+        flex-direction: column;
     }
-    #star{
-      display: flex;
-      justify-content: center;  
+
+    #brand-name {
+        font-size: 14px;
+        color: gray;
+        margin: 8px 0 0 0;
     }
+
+    #product-name {
+        font-size: 24px;
+        margin: 0;
+    }
+
+
+    /* 별점 */
+    #star-text {
+        display: flex;
+        justify-content: center;
+    }
+
+    #star {
+        display: flex;
+        justify-content: center;
+    }
+
     #star i {
-      font-size: 40px;
+        font-size: 40px;
     }
 
-        /* 내용 */
-    .review-content{
-      display: flex;
-      justify-content: center;
+    /* 내용 */
+    .review-content {
+        display: flex;
+        justify-content: center;
     }
-    #review-text{
-      width: 60%;
-      height: 300px;
+
+    #review-text {
+        width: 60%;
+        height: 300px;
     }
+
     #review-text:focus {
-      outline: 5px solid rgb(200,207,165);
-      border:none;
+        outline: 5px solid rgb(200, 207, 165);
+        border: none;
     }
 
 
-        /* 사진첨부 */
-    #camera i{
-      font-size: 30px;
+    /* 사진첨부 */
+    #camera i {
+        font-size: 30px;
     }
 
-        /* 버튼 */
-    #review-btn{
-      display: flex;
-      justify-content: center;
+    /* 버튼 */
+    #review-btn {
+        display: flex;
+        justify-content: center;
     }
-    
 
 
-  </style>
+</style>
 
 
-      <!-- 여기 코드 작성 해주세요 !!! -->
-      <!-- 제목 -->
-      <main class="container">
-        <h1 class="sub-title">리뷰 작성</h1>
+<!-- 여기 코드 작성 해주세요 !!! -->
+<!-- 제목 -->
+<main class="container">
+    <h1 class="sub-title">리뷰 작성</h1>
 
-        <!-- 제품정보 -->
-        <div id="PInformation">
-          <div id="ProductImage">
-            <img src="../image/크림.png" width="80px" height="80px">
-          </div>
-          <div id="PText">
+    <!-- 제품정보 -->
+    <div id="PInformation">
+        <div id="ProductImage">
+            <img src="/image/크림.png" width="80px" height="80px">
+        </div>
+        <div id="PText">
             <h6 id="brand-name">브랜드명</h6>
-            <h4 id="product-name">제품명:신보근바보멍청이</h4>  
-          </div>
+            <h4 id="product-name">제품명:신보근바보멍청이</h4>
         </div>
-        <hr id="line">
+    </div>
+    <hr class="line">
 
-        <!-- 평점 -->
-        <div id="score">
-          <h6 id="star-text">평점을 선택해주세요.</h6>
-          <div id="star">
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          </div>
+    <!-- 평점 -->
+    <div id="score">
+        <h6 id="star-text">평점을 선택해주세요.</h6>
+        <div id="star">
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
         </div>
-        <hr id="line">
+    </div>
+    <hr class="line">
 
-        <!-- 내용 입력란  -->
-                            <!-- ********글씨가 계속 옆으로 작성됨 수정필요. -->
-        <div class="review-content">
-          <input type="text" id="review-text" placeholder="리뷰 내용을 5글자 이상 작성하여주세요.">
-        </div>
-        <hr id="line">
+    <!-- 내용 입력란  -->
+    <!-- ********글씨가 계속 옆으로 작성됨 수정필요. -->
+    <div class="review-content">
+        <input type="text" id="review-text" placeholder="리뷰 내용을 5글자 이상 작성하여주세요.">
+    </div>
+    <hr id="line">
 
-        <!-- 사진첨부 -->
-        <div id="camera"><i class="fa-solid fa-camera"></i></div>
-        <div><button id="img-btn">첨부하기</button></div>
-
-
-        <!-- 등록버튼 -->
-        <div id="review-btn">
-          <button class="green-btn">등록</button>
-          <button class="gray-btn">취소</button>
-        </div>
-
-      </main>
+    <!-- 사진첨부 -->
+    <div id="camera"><i class="fa-solid fa-camera"></i></div>
+    <div>
+        <button id="img-btn">첨부하기</button>
+    </div>
 
 
+    <!-- 등록버튼 -->
+    <div id="review-btn">
+        <button class="green-btn">등록</button>
+        <button class="gray-btn">취소</button>
+    </div>
+
+</main>
 
 
-      <footer>
-        <div class="container">
-          <div class="first-line">
+<footer>
+    <div class="container">
+        <div class="first-line">
             <div class="fot-a">
-              <a href="index.html">회사소개</a>
-              <span> | </span>
-              <a href="#">이용약관</a>
-              <span> | </span>
-              <a href="#">개인정보처리방침</a>
+                <a href="/" onclick="window.open(`/`, '회사소개','width=500px, height=700px'); return false">회사소개</a>
+                <span> | </span>
+                <a href="#">이용약관</a>
+                <span> | </span>
+                <a href="#">개인정보처리방침</a>
             </div>
             <div class="Messenger">
-              <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-              <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
             </div>
-          </div>
-          <div class="second-line">
+        </div>
+        <div class="second-line">
             <div>상호명 (주) COSVIEW 대표 : 4조</div>
-            <div>사업자 등록 번호 : 812 - 16 - 00156 |  대구 중구 남산4동 00타워</div>
+            <div>사업자 등록 번호 : 812 - 16 - 00156 | 대구 중구 남산4동 00타워</div>
             <div>대표 전화 번호 : 010 - 9142 - 8786</div>
             <div>email : sbg03202 @ naver.com</div>
-          </div>
         </div>
-      </footer>
+    </div>
+</footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <script src="../main.js"></script>
-      
 </body>
 </html>
