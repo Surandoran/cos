@@ -7,152 +7,151 @@
     <title>COSVIEW</title>
     <link href="/image/logo4.png" rel="shortcut icon" type="image/x-icon">
     <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/nav.css">
-    
+
+
+    <!-- JQ -->
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="../js/slick.css">
+    <script src="../js/slick.min.js"></script>
 
 </head>
 
 <body>
-  <nav class="nav-var">
+<nav class="nav-var">
     <div class="logo" id="logo4">
-      <a href="Home.html"><img src="/image/logo4.png" width="45" height="45"></a>
+        <a href="/Login/Home"><img src="/image/logo4.png" width="45" height="45"></a>
     </div>
     <div class="category">
-      <button id="nav-btn" class="navbar-toggler collapsed" onclick="openNav()"><i class="fa-solid fa-bars "></i></button>
+        <button id="nav-btn" class="navbar-toggler collapsed" onclick="openNav()"><i class="fa-solid fa-bars "></i>
+        </button>
     </div>
     <div class="side-menu" id="mySidenav">
-      <a href="Home.html"><img src="/image/logo2.png" width="100%" height="60px" alt=""></a>
-      <div class="side-menu-center">
-        <div class="side-menu-list" id="menu-list">
-         <ul class="main-side">
-          <li><a href="../Product/product.html">제품</a></li>
-           <li><a>코스뷰 이야기</a></li>
-           <li><a>고객센터</a></li>
-           <li><a>마이 페이지</a></li>
-         </ul>
+        <a href="/Login/Home"><img src="/image/logo2.png" width="100%" height="60px" alt=""></a>
+        <div class="side-menu-center">
+            <div class="side-menu-list" id="menu-list">
+                <ul class="main-side">
+                    <li><a href="Product/ProductMain">제품</a></li>
+                    <li><a>코스뷰 이야기</a></li>
+                    <li><a href="ServiceCenter/CSCenter">고객센터</a></li>
+                    <li><a>마이 페이지</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
     <div class="menu-var">
-      <button><a href="/members">회원목록</a></button>
-      <button><a href="/members/new">회원가입</a></button>
-      <button><a href="../Login/login.html">로그인</a></button>
-      <button><a href="../Search/search.html"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+        <button><a href="/members">회원목록</a></button>
+        <button><a href="/members/new">회원가입</a></button>
+        <button><a href="/Login/login">로그인</a></button>
+        <button><a href="/Search/search"><i class="fa-solid fa-magnifying-glass"></i></a></button>
     </div>
-  </nav>
-  
-  
-  <main id="mains">
-    <video muted autoplay loop id="video-1" style="z-index: 1;"> 
-      <source src="/image/찐최종.mp4" type="video/mp4">
-    </video>
-    <div class="container">
-      <div class="text">
-        <h1>COSVIEW는</h1>
-        <P>성별에 맞는 화장품 맞춤 랭킹 !!</P>
-        <p> 당신이 원하는 제품의 리뷰를 한눈에 보여드립니다.</P>
-      </div>
-      <div class="people">
-        <img class="talk" src="/image/maintalk.png">
+</nav>
+
+
+<style>
+    #vision-space {
+        position: relative;
+    }
+
+    #vision-text {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+
+    }
+
+    #vision-text {
+        font-size: 2.5rem;
+    }
+
+    #value-space h1 {
+        font-size: 2.5rem;
+        border-bottom: 1px solid #c0c0c0;
+        margin: 30px 0;
+    }
+
+    .one-time {
+        list-style: none;
+        padding: 0px;
+    }
+</style>
+
+<main class="container" id="mains">
+    <h1>COSVIEW는</h1>
+    <p>성별에 맞는 화장품 맞춤 랭킹 !!</p>
+    <p>당신이 원하는 제품의 리뷰룰 한눈에 보여드립니다.</p>
+
+    <div>
+        <img src="/image/maintalk.png">
     </div>
 
-    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="/image/밤.png" class="d-block" alt="..." width="300px" height="300px">
+    <!-- 화장품 사진과 글 -->
+
+
+    <div id="vision-space">
+        <div id="vision-text">
+            <h5>VISION</h5>
+            <p>팀원 모두가 소통하며 <br>
+                성장하는 자율적 성장 플랫폼</p>
         </div>
-        <div class="carousel-item">
-          <img src="/image/선크림.png" class="d-block" alt="..." width="300px" height="300px">
-        </div>
-        <div class="carousel-item">
-          <img src="/image/크림.png" class="d-block" alt="..." width="300px" height="300px">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+        <img src="/image/lologo.png" alt="" height="300px">
     </div>
 
-      <div>
-        <h1>COSVIEW에서 만나는
-          특별한 뷰티 콘텐츠</h1>
-        <p>COSVIEW에서만 볼 수 있는 뷰티정보와 꿀팁을</p>
-        <p>COSVIEW 이야기에서 만나보세요.</p>
-        <img class="mb-5" src="/image/lologo.png" alt="" width="100%">
-
-        <h3>Our Value</h3>
-        <h1 id="success">모두를 위한 성장</h1>
+    <div id="value-space" class="mt-5">
+        <h5>Our values</h5>
+        <h1>모두를 위한 성장</h1>
         <p>스스로의 자유로운 성장을 돕고,</p>
         <p>이 성장이 모두의 성장으로 이어지며,</p>
         <p>궁극적으로 고객에게 이로운 영향을 미치는것.</p>
         <p>이것이 바로 우리의 성장입니다.</p>
-      </div>
-      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="/image/회사이미지.jpg" class="d-block" alt="..." width="100%" height="600px">
-          </div>
-          <div class="carousel-item">
-            <img src="/image/회사이미지2.jpg" class="d-block" alt="..." width="100%" height="600px">
-          </div>
-          <div class="carousel-item">
-            <img src="/image/회사이미지3.jpg" class="d-block" alt="..." width="100%" height="600px">
-          </div>
-          <div class="carousel-item">
-            <img src="/image/회사이미지4.jpg" class="d-block" alt="..." width="100%" height="600px">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-
     </div>
-  </main>
-  
+
+    <div class="tmp mt-5">
+        <ul class="one-time">
+            <li><img src="/image/회사이미지.jpg" alt="" width="100%"></li>
+            <li><img src="/image/회사이미지2.jpg" alt="" width="100%"></li>
+            <li><img src="/image/회사이미지3.jpg" alt="" width="100%"></li>
+            <li><img src="/image/회사이미지4.jpg" alt="" width="100%"></li>
+        </ul>
+    </div>
+</main>
 
 
-  <footer>
+<footer>
     <div class="container">
-      <div class="first-line">
-        <div class="fot-a">
-          <a href="#" onclick="window.open(`Home.html`, '회사소개','width=500px, height=700px'); return false">회사소개</a>
-          <span> | </span>
-          <a href="#">이용약관</a>
-          <span> | </span>
-          <a href="#">개인정보처리방침</a>
+        <div class="first-line">
+            <div class="fot-a">
+                <a href="#"
+                   onclick="window.open(`Home.html`, '회사소개','width=500px, height=700px'); return false">회사소개</a>
+                <span> | </span>
+                <a href="#">이용약관</a>
+                <span> | </span>
+                <a href="#">개인정보처리방침</a>
+            </div>
+            <div class="Messenger">
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+            </div>
         </div>
-        <div class="Messenger">
-          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-          <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+        <div class="second-line">
+            <div>상호명 (주) COSVIEW 대표 : 4조</div>
+            <div>사업자 등록 번호 : 812 - 16 - 00156 | 대구 중구 남산4동 00타워</div>
+            <div>대표 전화 번호 : 010 - 9142 - 8786</div>
+            <div>email : sbg03202 @ naver.com</div>
         </div>
-      </div>
-      <div class="second-line">
-        <div>상호명 (주) COSVIEW 대표 : 4조</div>
-        <div>사업자 등록 번호 : 812 - 16 - 00156 |  대구 중구 남산4동 00타워</div>
-        <div>대표 전화 번호 : 010 - 9142 - 8786</div>
-        <div>email : sbg03202 @ naver.com</div>
-      </div>
     </div>
-  </footer>
-      
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../main.js"></script>
+</footer>
+
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+<script src="/js/main.js"></script>
 </body>
 </html>

@@ -22,11 +22,17 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
+    @Column(name = "code")
     private Long Code;
+    @Column(name = "name")
     private String name;
+    @Column(name = "id")
     private String id;
+    @Column(name = "pw")
     private String pw;
+    @Column(name = "nickname")
     private String nickname;
+    @Column(name = "email")
     private String Email;
     private String phone;
     private String addr;

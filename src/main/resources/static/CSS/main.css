@@ -6,9 +6,61 @@ main{
     z-index: 1;
 }
 video {
+    /* width: 97%; */
+}
+  .one-time{
     width: 100%;
   }
-
+  .one-time li {
+    list-style: none;
+  }
+  .one-time li img{
+    width: 100%;
+    height: 400px;
+    margin: 0 0px;
+  }
+  .tmp{
+        width: 100%;
+        margin: 0 auto;
+    }
+        
+    .slick-arrow{
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        background-color: white;
+        border: 0;
+        opacity:0.3;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        color: gray;
+        /* box-shadow: 4px 4px 1px lightgray; */
+    }
+    .slick-arrow:hover{
+      opacity: 1;
+      transition: 1s;
+    }
+    #prev,#next{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 2;
+    }
+    #prev{
+        top: 170px;
+    }
+    #next{
+        top: 170px;
+        left: 96%;
+    }
+    .bn-controller{
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+  .bn-controller li button{
+    display: none;
+  }
 
 
 

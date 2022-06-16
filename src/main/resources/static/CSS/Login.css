@@ -1,3 +1,6 @@
+.h{
+    border-bottom: 1px solid gray; margin-top: 70px;
+}
 .log-input{
     border-bottom:2px solid #C0C0C0;
     display: flex;
@@ -7,9 +10,6 @@
 .log-input td input{
     width: 300px;
     height: 40px;
-}
-.h{
-    border-bottom: 1px solid gray; margin-top: 70px;
 }
 .table1{
     position: relative; top: 100px; margin-right: auto; margin-left: auto; text-align: center; font-size : 22px
@@ -22,9 +22,6 @@
 }
 .td4{
     height: 80px;
-}
-#inp1{
-    background-color: rgb(200,207,165); color: white;
 }
 .log-btn{
     border: none;
@@ -66,7 +63,10 @@
     border-radius: 10px;
     color: white;
     margin: 20px 30px;
-
+    
+}
+#inp1{
+    background-color: rgb(200,207,165); color: white;
 }
 #sign-btn{
     border: none;
