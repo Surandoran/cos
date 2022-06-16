@@ -1,28 +1,28 @@
 /* CSCenter.css */
 #CSHeader{
     margin-top : 70px;
- } 
+ }
 .CS1{
     width: 250px;
     height: 250px;
     border:1px solid rgba(128, 128, 128, 0.6);
 }
 #CSMenu{
-    text-decoration: none; 
-    color:black; 
-    border: 1px solid gray; 
+    text-decoration: none;
+    color:black;
+    border: 1px solid gray;
     border-radius: 5px;
 }
 .CSMenu2{
-    color:gray; 
-    font-size:80px; 
-    position: relative; 
+    color:gray;
+    font-size:80px;
+    position: relative;
     top:30px;
 }
 .CSList{
-    display: flex; 
-    flex-direction: row; 
-    position: relative; 
+    display: flex;
+    flex-direction: row;
+    position: relative;
     top:10px
 }
 .CSList2{
@@ -30,42 +30,42 @@
     color: black;
 }
 .CSBottom2{
-    width: 550px; 
-    height: 300px; 
-    border-radius: 15px; 
-    background-color: rgba(169, 169, 169, 0.205); 
+    width: 550px;
+    height: 300px;
+    border-radius: 15px;
+    background-color: rgba(169, 169, 169, 0.205);
     position: relative;
     top:20px; left:110px;
 }
 
 /* PersonalQuestion.css */
 #head{
-    border-bottom: 1px solid gray; 
-    position: relative; 
-    width: 1200px; 
-    left: 50px; 
+    border-bottom: 1px solid gray;
+    position: relative;
+    width: 1200px;
+    left: 50px;
     top: 30px;
 }
 .Table{
-    position: relative; 
-    top: 100px; 
-    margin-right: auto; 
-    margin-left: auto; 
-    text-align: center; 
+    position: relative;
+    top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
     font-size : 22px;
 }
 .center{
-    font-size: 36px; 
-    font-weight: 800; 
+    font-size: 36px;
+    font-weight: 800;
     width: 1200px;
 }
 .td1{
     height: 100px;
 }
 .td2{
-    text-align: left; 
-    height: 100px; 
-    border-top: 1px solid gray; 
+    text-align: left;
+    height: 100px;
+    border-top: 1px solid gray;
     border-bottom:1px solid gray;
 }
 .td3{
@@ -129,29 +129,29 @@
 /* FAQ.css */
 #FAQHeader{
     margin-top : 70px;
- } 
+ }
  #FAQMain{
     margin-top : 50px;
     font-size: 40px;
  }
 
- 
+
  .FAQSearch{
-    text-align: left; 
-    width:270px; 
+    text-align: left;
+    width:270px;
     border: 1px solid gray;
-    border-radius: 5px; 
+    border-radius: 5px;
     border-color: gray;
-    background-color: white; 
+    background-color: white;
     padding-right: 30px;
  }
  #FAQSearchbox{
-    text-align: center; 
+    text-align: center;
     justify-content: center;
  }
 
 .FAQList{
-    text-decoration: none; 
+    text-decoration: none;
     color: black;
     font-size: 25px;
  }
@@ -173,7 +173,7 @@
     border-bottom: 1px solid rgba(128, 128, 128, 0.425);
 }
 .FAQ-level1>li>a{
-    text-decoration: none; 
+    text-decoration: none;
     color: black;
 }
 
