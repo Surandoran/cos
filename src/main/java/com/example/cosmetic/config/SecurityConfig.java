@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
                 .permitAll()
                 .and()
             .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+                .logoutRequestMatcher(new AntPathRequestMatcher("/Login/login"))
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)    // 세션 초기화
                 .and()
