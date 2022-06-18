@@ -34,7 +34,6 @@ $('.one-time').slick({
     dots:true,
     dotsClass:'bn-controller' ,
 });
-
 $('.multiple-items').slick({
     infinite: true,
     slidesToShow: 2,
