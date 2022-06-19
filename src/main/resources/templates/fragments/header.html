@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:fragment="headerFragment">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSVIEW</title>
+
+    <nav class="nav-var">
+        <div class="logo" id="logo4">
+            <a href="/"><img src="/image/logo4.png" width="45" height="45"></a>
+        </div>
+        <div class="category">
+            <button id="nav-btn" class="navbar-toggler collapsed" onclick="openNav()"><i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div class="side-menu" id="mySidenav">
+            <a href="/"><img src="/image/logo2.png" width="100%" height="60px" alt=""></a>
+            <div class="side-menu-center">
+                <div class="side-menu-list" id="menu-list">
+                    <ul class="main-side">
+                        <li><a href="/Product/ProductMain">제품</a></li>
+                        <li><a>코스뷰 이야기</a></li>
+                        <li><a href="/ServiceCenter/CSCenter">고객센터</a></li>
+                        <li><a>마이 페이지</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="menu-var">
+            <button><a href="/members">회원목록</a></button>
+            <button><a href="/members/new">회원가입</a></button>
+            <button><a href="/Login/login">로그인</a></button>
+            <button><a href="/Search/search"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+        </div>
+    </nav>
+</header>
+
+</html>

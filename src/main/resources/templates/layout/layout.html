@@ -1,29 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<!-- 공통 헤드-->
-<th:block th:replace="/layout/fragments/head :: headFragment"></th:block>
+<head th:replace="fragments/config :: configFragment"></head>
 
-<body id="page-top">
-<div id="wrapper">
-    <!-- 사이드바-->
-    <th:block th:replace="/layout/fragments/sidebar :: sidebarFragment"></th:block>
-
-    <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
-            <!-- 상단바-->
-            <th:block th:replace="/layout/fragments/top :: topbarFragment"></th:block>
-
-            <!-- 본문-->
-            <th:block layout:fragment="content"></th:block>
-        </div>
-
-        <!-- 공통 하단-->
-        <th:block th:replace="/layout/fragments/footer :: footerFragment"></th:block>
-    </div>
-</div>
-
-<!-- 공통 스크립트-->
-<th:block th:replace="/layout/fragments/script :: scriptFragment"></th:block>
+<body>
+<!-- header 시작 -->
+<header th:replace="fragments/header :: headerFragment"></header>
+<!-- header 끝 -->
+<!-- content 시작 -->
+<div layout:fragment="content"></div>
+<!-- content 끝 -->
+<!-- footer 시작 -->
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+<!-- footer 끝 -->
 </body>
+
 </html>

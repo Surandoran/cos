@@ -1,11 +1,30 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<th:block th:fragment="footerFragment">
-    <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; song gunho 2019</span>
+
+
+<footer th:fragment="footerFragment">
+    <div class="container">
+        <div class="first-line">
+            <div class="fot-a">
+                <a href="/"
+                   onclick="window.open(`/`, '회사소개','width=500px, height=700px'); return false">회사소개</a>
+                <span> | </span>
+                <a href="#">이용약관</a>
+                <span> | </span>
+                <a href="#">개인정보처리방침</a>
+            </div>
+            <div class="Messenger">
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
-    </footer>
-</th:block>
+        <div class="second-line">
+            <div>상호명 (주) COSVIEW 대표 : 4조</div>
+            <div>사업자 등록 번호 : 812 - 16 - 00156 | 대구 중구 남산4동 00타워</div>
+            <div>대표 전화 번호 : 010 - 9142 - 8786</div>
+            <div>email : sbg03202 @ naver.com</div>
+        </div>
+    </div>
+</footer>
 </html>

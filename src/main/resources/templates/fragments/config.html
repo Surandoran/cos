@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="configFragment">
+    <meta charset="UTF-8" />
+    <!-- 공통으로 쓰이는 css파일을 넣는다.-->
+    <link rel="stylesheet" th:href="@{CSS/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{CSS/main.css}">
+    <link rel="stylesheet" th:href="@{CSS/Footer.css}">
+    <link rel="stylesheet" th:href="@{CSS/Common.css}">
+    <link rel="stylesheet" th:href="@{CSS/nav.css}">
+
+    <!-- 컨텐츠페이지의 CSS 영역이 들어감 -->
+    <th:block layout:fragment="css"></th:block>
+
+    <!-- 공통으로 쓰이는 js 파일을 넣는다.-->
+    <script th:src="@{http://code.jquery.com/jquery-latest.min.js}"></script>
+    <script th:src="@{https://kit.fontawesome.com/2c827c8cca.js}" crossorigin="anonymous"></script>
+    <script th:src="@{js/bootstrap.min.js}"></script>
+    <script th:src="@{js/main.js}"></script>
+    <!-- 컨텐츠페이지의 스크립트 영역이 들어감 -->
+    <th:block layout:fragment="script"></th:block>
+
+</head>
+
+</html>
