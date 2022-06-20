@@ -56,38 +56,6 @@ width: 29px; height: 29px;
     color: skyblue;
     padding: 5px;
     }
-#pro-search{
-width :450px; 
-height:40px;
-}
-.search-main{
-display: flex;
-justify-content: center;
-margin-top: 70px;
-}
-.search-main button{
-height: 40px;
-border: none;
-background-color: white;
-}
-.search-main button i{
-color: gray;
-font-size: 20px;
-}
-.popular{
-display: flex;
-justify-content: space-around;
-margin-top: 70px;
-text-align: center;
-padding-bottom: 50px;
-border-bottom: 1px solid #C0C0C0;
-}
-
-.best{
-display: flex;
-flex-direction: column;
-align-items: center;
-}
 
 
 #pro-search{
@@ -131,5 +99,167 @@ align-items: center;
     font-size: 10px;
     font-weight: 100;
 }
+
+#category{
+    display: none;
+    position: absolute;
+    width: 68%;
+    background-color: rgba(224, 224, 224, 0.92);
+    height: 330px;
+    top: 150px;
+    color: rgb(94, 94, 94);
+    transition-delay: 1s;
+  }
+  #cate-submenu{
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+  }
+  #category ul{
+    list-style: none;
+    padding: 0px;
+  }
+  li{
+    padding: 5px;
+    text-align: center;
+  }
+  b{
+    color: black;
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid rgb(94, 94, 94);
+  }
+
+
+
+
+/* ReviewWrite.css */
+#line{
+    border: 0;
+    height: 2px;
+    width: 70%;
+    margin: 40px auto;
+}
+#line2{
+    border: 0;
+    height: 2px;
+    width: 70%;
+    margin: 40px auto;
+}
+
+/* 제품정보 */
+#brandName{
+    font-size: 14px;
+    color:gray;
+    margin: 8px 0 0 0;
+}
+#PInformation{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#PText{
+    display: flex;
+    flex-direction: column;
+}
+#productName{
+    font-size: 24px;
+    margin: 0;
+}
+
+
+/* 별점 */
+#star{
+    display: flex;
+    justify-content: center;  
+}
+#star i {
+    font-size: 40px;
+    color: rgb(241, 196, 15);
+}
+#starText{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* 내용 */
+.reviewContent{
+    display: flex;
+    justify-content: center;
+}
+#reviewText{
+    width: 70%;
+    height: 300px;
+}
+#reviewText:focus {
+    outline: 5px solid rgb(200,207,165);
+    border:none;
+}
+
+
+/* 사진첨부 */
+.picture{
+    display: flex;
+    width: 70%;
+    margin: 40px auto;
+}
+.picture img{
+    border: 1px solid lightgray;
+    width:150px; height:150px;
+}
+.picture img:not(:first-child){
+    margin-left: 30px;
+}
+.reviewPicture{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+#camera i{
+    font-size: 30px;
+}
+#pictureBtn{
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    background-color: white;
+    font-size: 16px;
+    line-height:30px;
+    position: relative;
+    top: -25%;
+}
+#pictureBtn:hover{
+    box-shadow: 1px 1px 1px 1px gray;
+}
+#pictureBtn2{
+    border: none;
+    border-radius: 5px;
+    background-color: lightgray;
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    color: rgb(87, 87, 87);
+    line-height:30px;
+}
+#pictureBtn2:hover{
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+
+
+/* 등록 취소 버튼 */
+.reviewBtn{
+    width: 70%;
+    margin: 150px auto;
+    display: flex;
+    justify-content: center;
+}
+
+
 
 

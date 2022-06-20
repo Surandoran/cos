@@ -1,0 +1,55 @@
+/* CosviewStory.css */
+.card{
+    width: 300px;
+    height: 300px;
+    margin: 150px 20px;
+    position: relative;
+    cursor: pointer;
+    border: 0px;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+.card img:hover{
+    transform: scale(1.03,1.03);
+    transition: 0.4s;
+}
+.iteminfo{
+    position: absolute;
+    top: 310px;
+}
+.iteminfo h6{
+  font-size: 1.2rem;
+  width: 300px;
+  /* 일정 글자 수 넘어가면 말줄임  */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+}
+.iteminfo p{
+  font-size: 0.9rem;
+  letter-spacing: -1px;
+  /* 일정 글자 수 넘어가면 말줄임  */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pageNav{
+  margin-top: 150px;
+}
+.wrapper{
+    display: flex;
+    justify-content: space-around;
+    /* 한 라인에 다 못잡으면 하단으로 내려줌 */
+    flex-wrap: wrap;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 200px;
+}
+.wrapper a{
+  color: black;
+}

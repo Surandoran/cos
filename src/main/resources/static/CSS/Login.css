@@ -12,7 +12,7 @@
     height: 40px;
 }
 .table1{
-    position: relative; top: 100px; margin-right: auto; margin-left: auto; text-align: center; font-size : 22px
+ margin-right: auto; margin-left: auto; text-align: center; font-size : 22px
 }
 .td1{
     border-bottom:1px solid gray ; height: 40px;
@@ -91,21 +91,3 @@
 
 
 
-#top-title{
-    font-size:36px;
-    margin-left:20%;
-    margin-right:20%;
-}
-
-#top-title hr{
-    border:2px solid gray;
-}
-.middle-title{
-    font-size:28px;
-    margin-left:10%;
-    margin-right: 10%; 
-    margin-top:10%;
-}
-.middle-content{
-    font-size:15px;
-  }

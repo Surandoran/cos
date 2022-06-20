@@ -1,22 +1,170 @@
+    /* ----------------------------------------여기부터 공통---------------------------------------- */
 
-    #top-title{
+    #main-container{
+        width: 70%;
+        margin: 50px auto;
+    }
+    #basic-informaiton2{
+        margin: 0 auto;
+    }
+
+    /* ----------------------------------------여기까지 공통---------------------------------------- */
+
+    /* profile */
+    .profile div{
+        display:inline-block;
+        height: 50px;
+    }
+
+    .profile-picture{
+        width:100px; 
+        height:100px; 
+        float:left;
+    }
+    
+
+    /* information */
+    .age-gender{
+        width:60px; height:100%; display:inline-block; border:1px solid gray;text-align: center;
+        line-height:50px;
+    }
+    .setting{
+        float:left;
+    }
+    /* submenu */
+    .sub-menu div{
+        display: inline-block;
+    }
+    .my-review{
+        width:49%;
+    }
+    .review-count{
+        display:block; width:99%;height:49%; text-align:center;color:blue;font-size:25px; cursor: pointer;
+    }
+    .my-review-label{
+        display:block; width:99%;height:49%; text-align:center;font-size:20px;
+    }
+    .qna-list{
+        width:49%;
+    }
+    .my-review{
+        height:100%;
+        width:50%; 
+        border-right:2px solid lightgray;
+    }
+    .qna{
+        height:100%; width:49%;
+    }
+    .qna-count{
+        display:block; width:99%;height:49%; text-align:center;color:blue;font-size:25px; cursor: pointer;
+    }
+    .qna-label{
+        display:block; width:99%;height:49%; text-align:center;font-size:20px;
+    }
+    #product{
+        height:10%; cursor:pointer;
+    }
+    #product-suggestion{
+        display:inline-block; width:83%; vertical-align: middle;
+    }
+
+    /* review */
+    .review{
+        width:100%; height:500px;
+    }
+    .review-div{
+        width:100%; height:100%;
+        padding-left:5%;
+        padding-right:5%;
+    }
+    #banner-slider{
+    }
+    #banner-slider ul{
+        padding:0px; list-style:none;
+        width: 600px; height:470px;
+    }
+
+
+    /* ----------------------------------------여기까지 My_page.html---------------------------------------- */
+
+
+
+    /* ----------------------------------------아래부터 Inform_change.html---------------------------------------- */
+
+    .basic-information{
+        text-align: center;
+    }
+    .label1{
+        display:inline-block; width:100px; margin-top:15px; margin-bottom:15px;
+    }
+    .label2{
+        display:inline-block; width:100px;margin-left:9%;margin-top:15px; margin-bottom:15px;
+    }
+    .label3{
+        display:inline-block; width:100px;margin-left:9%;margin-top:15px; margin-bottom:15px;
+        position:relative; left:-150px;
+    }
+    .male{
+        display:inline-block; position:relative; left:-110px;
+    }
+    .female{
+        display:inline-block; position:relative; left:-20px;
+    }
+    .input1{
+        width:300px; height:33px;
+    }
+    .button-div2{
+        text-align: center;
+        font-size:20px;
+        margin-top:8%;
+    }
+    .button-div2 button{
+        margin-left:5%;
+        margin-right: 5%;
+        width:100px;
+        height:50px;
+    }
+
+
+
+    /* ----------------------------------------여기까지 Inform_change.html---------------------------------------- */
+
+
+    /* ----------------------------------------아래부터 reg_cancel.html---------------------------------------- */
+    .main-container{
         font-size:36px;
-        margin-left:20%;
-        margin-right:20%;
-        }
-        
-        #top-title hr{
+        margin-left:10%;
+        margin-right:10%;
+    }
+    
+    .main-body hr{
         border:2px solid gray;
-        }
-        #middle-title{
-            font-size:28px;
-            margin-left:10%;
-            margin-right: 10%; 
-            margin-top:10%;
-        }
-        #middle-content{
-            font-size:15px;
-          }
-        .table-menu{
-            font-size:22px;
-        }
+    }
+    .middle-body{
+        font-size:28px;
+        margin-left:10%;
+        margin-right: 10%; 
+        margin-top:10%;
+    }
+    .middle-content{
+        font-size:15px;
+        margin-top:5%;
+        text-align: center;
+      }
+    .button-div{
+        font-size:20px;
+        margin-top:8%;
+    }
+    .button-div button{
+        width:120px;
+        height:50px;
+        margin:0%5%5%10%;
+    }
+    /* ----------------------------------------여기까지 reg_cancel.html---------------------------------------- */
+
+    
+    /* ----------------------------------------아래부터 cancel_success.html---------------------------------------- */
+    .success-page{
+        margin-left:15%; margin-right:15%; margin-top:10%; margin-bottom:10%;height: 500px;
+        text-align: center;
+    }

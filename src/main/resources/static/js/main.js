@@ -20,7 +20,7 @@ const openNav = () => {
         navflag = true
     }
 };
-// 메인화면 슬릭
+$(document).ready(function(){
 $('.one-time').slick({
     dots: true,
     infinite: true,
@@ -44,3 +44,66 @@ $('.multiple-items').slick({
     slidesToScroll: 3
 });
 
+})
+
+//메인 스크롤 이벤트
+$(document).ready(function() {
+    let controller = new ScrollMagic.Controller();
+    let animateElem = [".animate_1", ".animate_2", ".animate_3"];
+    let triggerElem = [".trigger_1", ".trigger_2", ".trigger_3"];
+
+    for (let i = 0; i < animateElem.length; i++) {
+        let currentAnimateElem = animateElem[i];
+        let currentTriggerElem = triggerElem[i];
+
+        let timeline = new TimelineMax();
+
+        let tween_move = TweenMax.fromTo(
+            currentAnimateElem,
+            1,
+            {
+                ease: SlowMo.ease.config(0.7, 0.7, false),
+                y: 50
+            },
+            {
+                ease: SlowMo.ease.config(0.7, 0.7, false),
+                y: -50
+            }
+        );
+
+        let tween_opacity = new TimelineMax();
+        tween_opacity
+            .to(currentAnimateElem, 0.3, {
+                ease: Linear.easeNone,
+                opacity: 1
+            })
+            .to(
+                currentAnimateElem, 0.3, {
+                    ease: Linear.easeNone,
+                    opacity: 0
+                },
+                "+=0.4"
+            );
+
+        timeline.add(tween_move, 0).add(tween_opacity, 0);
+
+        let scene_main = new ScrollMagic.Scene({
+            triggerElement: currentTriggerElem,
+            duration: "900px"
+        })
+            .setTween(timeline)
+            .addTo(controller);
+    }
+    const video = document.getElementById("bgvid");
+
+    $(window).scroll(function () {
+        let y = $(window).scrollTop()
+        console.log(y)
+        if (y > 2000) {
+            // $('video').css("display", "none")
+            $('video').fadeOut();
+        } else {
+            $('video').fadeIn();
+        }
+    })
+});
