@@ -1,105 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COSVIEW</title>
-    <link href="/image/logo4.png" rel="shortcut icon" type="/image/x-icon">
-    <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/Product.css">
-    <link rel="stylesheet" href="/CSS/Footer.css">
-    <link rel="stylesheet" href="/CSS/Common.css">
-    <link rel="stylesheet" href="/CSS/nav.css">
-    <link rel="stylesheet" href="/CSS/Mypage.css">
-    
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="layout/layout"
+>
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script"> </th:block>
 
-</head>
-<body>
-  <nav class="nav-var">
-    <div class="logo" id="logo4">
-      <a href="/"><img src="/image/logo4.png" width="45" height="45"></a>
-    </div>
-    <div class="category">
-      <button id="nav-btn" class="navbar-toggler collapsed" onclick="openNav()"><i class="fa-solid fa-bars "></i></button>
-    </div>
-    <div class="side-menu" id="mySidenav">
-      <a href="/"><img src="/image/logo2.png" width="100%" height="60px" alt=""></a>
-      <div class="side-menu-center">
-        <div class="side-menu-list" id="menu-list">
-         <ul class="main-side">
-          <li><a href="/Product/ProductMain">제품</a></li>
-           <li><a>코스뷰 이야기</a></li>
-           <li><a href="/ServiceCenter/CSCenter">고객센터</a></li>
-           <li><a>마이 페이지</a></li>
-         </ul>
+<div layout:fragment="content">
+    <main class="container">
+        <div class="sub-title">
+            <h1>마이페이지</h1>
         </div>
-      </div>
-    </div>
-    <div class="menu-var">
-      <button><a href="/Login/login">로그인</a></button>
-      <button><a href="/Search/search"><i class="fa-solid fa-magnifying-glass"></i></a></button>
-    </div>
-  </nav>
 
+        <div id="main-container">
 
+            <div class="profile">
+                <div class="profile-picture">
+                    <a href="#"><img src="/image/프로필사진.jpg" class=profile-picture alt="profile picture"></a>
+                </div>
 
-      <!-- 여기 코드 작성 해주세요 !!! -->
-      <main id="container">
-          
-        <div id="top-title">
-           <h1 class="sub-title">마이페이지</h1>
-            <div id="middle-title">
-                <div id="profile">
-                <a href="#"><img src="C:\Users\Administrator\Documents\visualcode\COSVIEW\image\프로필사진.png"></a>
-                <span style="display:inline-block; height:100%; width:50%;">이름</span>
-                <a href="#">설정버튼</a>
-            </div><hr>
-            <div style="height:70px;">
-                <span style="display:inline-block; height:100%; width:50%; 
-                text-align: center;" >내 리뷰</span>
-                <span style="display:inline-block; height:100%; width:40%; 
-                border-left: 3px solid lightgray;text-align: center;">내 리뷰</span>
+                <div class="information" style="width:75%; height:100%; margin-left:15px;">
+                    <div class="name" style="display:block; font-size:26px;">이름</div>
+                    <div>
+                        <div class="age-gender">나이</div>
+                        <div class="age-gender">성별</div>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="/Mypage/Inform_change" class="setting">
+                        <img src="/image/정보수정버튼.png" alt="information changebutton"></a>
+                </div>
             </div>
             <hr>
-            <div id="review" style="width:100%; height: 100%; border:1px solid black">
-                <div align="center"><img src="">등록x</div>
+
+            <div class="sub-menu">
+
+                <div class="my-review">
+                    <div OnClick="location.href='#'" class="review-count">
+                        1
+                    </div>
+                    <div class="my-review-label">
+                        내 리뷰
+                    </div>
+                </div>
+
+                <div class="qna">
+                    <div OnClick="location.href='/ServiceCenter/PersonalQuestion'" class="qna-count">
+                        1
+                    </div>
+                    <div class="qna-label" >
+                        문의 내역
+                    </div>
+                </div>
             </div>
+            <hr>
 
+            <div OnClick="location.href='../Product/ProductMain.html'" id="product">
+                <div id="product-suggestion">
+                    <h6>닥터지</h6><h3>레드블레미쉬 크림</h3>
+                </div>
+                <a href="/Product/ProductMain">
+                    <img src="/image/선크림.png" style="width:100px; height:100px;" alt="suncream">
+                </a>
+            </div>
+            <hr>
 
+            <div class="review">
+                (리뷰 들어갈 공간)
+                <div id="banner-slider" class="swiper">
+                    <ul  class="swiper-wrapper">
+                        <li class="swiper-slide"><div class="review-div">1</div></li>
+                        <li class="swiper-slide"><div class="review-div">2</div></li>
+                        <li class="swiper-slide"><div class="review-div">3</div></li>
+                        <li class="swiper-slide"><div class="review-div">4</div></li>
+                    </ul>
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-prev" style="color:lightgray;"></div>
+                    <div class="swiper-button-next" style="color:lightgray;"></div>
+                </div>
+                <script>
+                    $(document).ready(function(){
+                        const swiper = new Swiper('.swiper', {
+                            direction: 'horizontal',
+                            loop: true,
+                            pagination: {
+                                el: '.swiper-pagination',
+                                type:"fraction",
+                                clickable : 'true',
+                            },
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                            scrollbar: {
+                                el: '.swiper-scrollbar',
+                                draggable: true,
+                            },
+                            speed : 800,
+                        });
+                    })
+                </script>
+            </div>
+            <hr>
         </div>
-      </main>
 
-
-      <footer>
-        <div class="container">
-          <div class="first-line">
-            <div class="fot-a">
-              <a href="/" onclick="window.open(`/`, '회사소개','width=500px, height=700px'); return false">회사소개</a>
-              <span> | </span>
-              <a href="#">이용약관</a>
-              <span> | </span>
-              <a href="#">개인정보처리방침</a>
-            </div>
-            <div class="Messenger">
-              <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-              <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-          </div>
-          <div class="second-line">
-            <div>상호명 (주) COSVIEW 대표 : 4조</div>
-            <div>사업자 등록 번호 : 812 - 16 - 00156 |  대구 중구 남산4동 00타워</div>
-            <div>대표 전화 번호 : 010 - 9142 - 8786</div>
-            <div>email : sbg03202 @ naver.com</div>
-          </div>
-        </div>
-      </footer>
-
-
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <script src="/js/main.js"></script>
-</body>
+    </main>
+</div>
 </html>

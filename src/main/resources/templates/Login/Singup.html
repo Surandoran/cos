@@ -1,288 +1,214 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>[[${pageTitle}]]</title>
-
-    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"-->
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-     <link href="image/logo4.png" rel="shortcut icon" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/Login.css">
-    <link rel="stylesheet" href="/CSS/Footer.css">
-    <link rel="stylesheet" href="/CSS/Common.css">
-    <link rel="stylesheet" href="/CSS/nav.css">
-    <script src="/js/main.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
-</head>
-<body>
-<nav class="nav-var">
-    <div class="logo" id="logo4">
-        <a href="/"><img src="/image/logo4.png" width="45" height="45"></a>
-    </div>
-    <div class="category">
-        <button id="nav-btn" class="navbar-toggler collapsed" onclick="openNav()"><i class="fa-solid fa-bars "></i>
-        </button>
-    </div>
-    <div class="side-menu" id="mySidenav">
-        <a href="/"><img src="/image/logo2.png" width="100%" height="60px" alt=""></a>
-        <div class="side-menu-center">
-            <div class="side-menu-list" id="menu-list">
-                <ul class="main-side">
-                    <li><a href="/Product/ProductMain">제품</a></li>
-                    <li><a>코스뷰 이야기</a></li>
-                    <li><a href="/ServiceCenter/CSCenter">고객센터</a></li>
-                    <li><a>마이 페이지</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="menu-var">
-        <button><a href="/Login/login">로그인</a></button>
-        <button><a href="/Search/search"><i class="fa-solid fa-magnifying-glass"></i></a></button>
-    </div>
-</nav>
-
-
-<main class="container">
-    =
-    <form class="singup-menu" id="regForm" action="/members/new" method="post" th:object="${member}" onsubmit="return fn_submitChk();">
-        <script th:inline="javascript">
-            function fn_submitChk() {
-                    <!-- var idChk_val = $("#idChk").val();-->
-                if (regForm.name.value == "") {
-                    regForm.name.focus();
-                    alert("이름을 입력해주세요");
-                    return false;
-                }
-                if ( regForm.userid.value == ""){
-                    regForm.userid.focus();
-                    alert("아이디를 입력해주세요")
-                    return false;
-                }
-                if ( regForm.nickname.value == ""){
-                    regForm.nickname.focus();
-                    alert("닉네임을 입력해주세요")
-                    return false;
-                }
-                if (regForm.userpw.value == "") {
-                    regForm.userpw.focus();
-                    alert("비밀번호를 입력해주세영");
-                    return false;
-                }
-                if (regForm.userpw.value != regForm.confirm_password.value) {
-                    regForm.confirm_password.focus();
-                    alert("비밀번호가 일치하지 않습니다! 확인해주세영!");
-                    return false;
-                }
-                if (regForm.email.value == ""){
-                    regForm.email.focus();
-                    alert("이메일을 입력해주세요")
-                    return false;
-                }
-                if(regForm.useraddr.value == ""){
-                    regForm.useraddr.focus();
-                    alert("주소를 입력해주세요");
-                    return false;
-                }
-                if ($('#idChk').val == "N") {
-                    regForm.userid.focus();
-                    alert("아이디 중복 확인이 필요합니당");
-                    return false;
-                }
-                if ($('#nickChk').val == "N"){
-                    regForm.usernickname.focus();
-                    alert("닉네임 중복 확인이 필요합니당~~!@~!~!~!~!~");
-                    return false;
-                }
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="layout/layout"
+>
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        function fn_submitChk() {
+            <!-- var idChk_val = $("#idChk").val();-->
+            if (regForm.name.value == "") {
+                regForm.name.focus();
+                alert("이름을 입력해주세요");
+                return false;
             }
-        </script>
-        <H2 class="text-center mt-5">[[${pageTitle}]]</H2>
-        <div class="mt-5 sign-view">
-            <div class="form-group">
-                <input type="hidden" th:name="${code}">
-                <label>이름</label><br>
-                <input class="text-input form-control" type="text" name="name" placeholder=" 이름을 입력하세요."><br>
-                <label>아이디</label>
-                <button type="button" class="menu-btn me-1" id="idChk" onclick="fn_idChk()" value="N">중복확인</button>
-                <br>
-                <input class="text-input form-control" type="text" name="id" id="userid" placeholder=" 아이디를 입력하세요."><br>
+            if (regForm.userid.value == "") {
+                regForm.userid.focus();
+                alert("아이디를 입력해주세요")
+                return false;
+            }
+            if (regForm.nickname.value == "") {
+                regForm.nickname.focus();
+                alert("닉네임을 입력해주세요")
+                return false;
+            }
+            if (regForm.userpw.value == "") {
+                regForm.userpw.focus();
+                alert("비밀번호를 입력해주세영");
+                return false;
+            }
+            if (regForm.userpw.value != regForm.confirm_password.value) {
+                regForm.confirm_password.focus();
+                alert("비밀번호가 일치하지 않습니다! 확인해주세영!");
+                return false;
+            }
+            if (regForm.email.value == "") {
+                regForm.email.focus();
+                alert("이메일을 입력해주세요")
+                return false;
+            }
+            if (regForm.useraddr.value == "") {
+                regForm.useraddr.focus();
+                alert("주소를 입력해주세요");
+                return false;
+            }
+            if ($('#idChk').val == "N") {
+                regForm.userid.focus();
+                alert("아이디 중복 확인이 필요합니당");
+                return false;
+            }
+            if ($('#nickChk').val == "N") {
+                regForm.usernickname.focus();
+                alert("닉네임 중복 확인이 필요합니당~~!@~!~!~!~!~");
+                return false;
+            }
+        }
 
-                <script th:inline="javascript">
-                    function fn_idChk() {
-                        // request 파라미터에 userid 를 넣어서 서버단으로 보냄
-                        var params = {
-                            userid: $('#userid').val()
-                        }
+        function fn_idChk() {
+            // request 파라미터에 userid 를 넣어서 서버단으로 보냄
+            var params = {
+                userid: $('#userid').val()
+            }
 
-                        $.ajax({
-                            url: "/member/idChk", //데이터 주소
-                            type: "POST", //보내는방식 get 혹은 post
-                            dataType: 'json', //서버로부터 받는 값의 데이터 형식
-                            data: params, //보내는 데이터 형식
+            $.ajax({
+                url: "/member/idChk", //데이터 주소
+                type: "POST", //보내는방식 get 혹은 post
+                dataType: 'json', //서버로부터 받는 값의 데이터 형식
+                data: params, //보내는 데이터 형식
 
-                            // 서버에서 데이터가 넘어오면 success 에 들어옴 이때 result는 서버에서 응답받아서 넘어온 데이터
+                // 서버에서 데이터가 넘어오면 success 에 들어옴 이때 result는 서버에서 응답받아서 넘어온 데이터
 
-                            success: function (result) {
+                success: function (result) {
 
-                                // json 방식으로 넘어온 데이터는 key : value 형식이기 때문에 result.result 로 해야 값을 가져올 수 있음
-                                var idChk = result.result
-                                if (idChk == false) {
-                                    $('#idChk').attr("value", "N");
-                                    alert("중복된 아이디예염! 다른걸로 ㄱㄱ");
+                    // json 방식으로 넘어온 데이터는 key : value 형식이기 때문에 result.result 로 해야 값을 가져올 수 있음
+                    var idChk = result.result
+                    if (idChk == false) {
+                        $('#idChk').attr("value", "N");
+                        alert("중복된 아이디예염! 다른걸로 ㄱㄱ");
 
-                                } else if (idChk == true) {
-                                    $('#idChk').attr("value", "Y");
-                                    alert("굿 잘지었음 ㄱㄱ")
+                    } else if (idChk == true) {
+                        $('#idChk').attr("value", "Y");
+                        alert("굿 잘지었음 ㄱㄱ")
 
-                                } else if (idChk == "") {
-                                    alert("아이디는입력하셔야졍;;");
-                                }
-                            }
-                        })
+                    } else if (idChk == "") {
+                        alert("아이디는입력하셔야졍;;");
                     }
-                </script>
-                <label>비밀번호</label><br>
-                <input class="text-input form-control" type="password" name="pw" id="userpw"
-                       placeholder=" 비밀번호를 입력하세요."><br>
-                <label>비밀번호 재확인</label><br>
-                <input class="text-input form-control" type="password" id="confirm_password"
-                       placeholder=" 비밀번호를 입력하세요."><br>
-                <label>닉네임</label>
-                <button type="button" class="menu-btn me-1" id="nickChk" onclick="fn_nickChk()">중복확인</button>
-                <br>
-                <input class="text-input form-control" type="text" name="nickname" id="usernickname"
-                       placeholder=" 닉네임을 입력하세요."><br>
+                }
+            })
+        }
 
-                <script th:inline="javascript">
-                    function fn_nickChk() {
-                        // request 파라미터에 userid 를 넣어서 서버단으로 보냄
-                        var params = {
-                            nickname: $('#usernickname').val()
-                        }
+        function fn_nickChk() {
+            // request 파라미터에 userid 를 넣어서 서버단으로 보냄
+            var params = {
+                nickname: $('#usernickname').val()
+            }
 
 
-                        $.ajax({
-                            url: "/member/nickChk",
-                            type: "POST",
-                            dataType: 'json',
-                            data: params,
+            $.ajax({
+                url: "/member/nickChk",
+                type: "POST",
+                dataType: 'json',
+                data: params,
 
-                            success: function (result) {
+                success: function (result) {
 
-                                var nickChk = result.result
-                                if (nickChk == false) {
-                                    $('#idChk').attr("value", "N");
-                                    alert("중복된 닉이예염! 다른걸로 ㄱㄱ");
+                    var nickChk = result.result
+                    if (nickChk == false) {
+                        $('#idChk').attr("value", "N");
+                        alert("중복된 닉이예염! 다른걸로 ㄱㄱ");
 
-                                } else if (nickChk == true) {
-                                    $('#idChk').attr("value", "Y");
-                                    alert("굿 잘지었음 ㄱㄱ")
+                    } else if (nickChk == true) {
+                        $('#idChk').attr("value", "Y");
+                        alert("굿 잘지었음 ㄱㄱ")
 
-                                } else if (nickChk == "") {
-                                    alert("닉네임은입력하셔야졍;;");
-                                }
-                            }
-                        })
+                    } else if (nickChk == "") {
+                        alert("닉네임은입력하셔야졍;;");
                     }
-                </script>
+                }
+            })
+        }
 
+        function getGender() {
 
-                <label>성별(선택)</label><br>
-                <input class="form-check-input" id="gender_man" type="radio" name="gender" value="M" checked>남 &nbsp;
-                <input class="form-check-input" id="gender_woman" type="radio" name="gender" value="W">여 <br>
+            const genderNodeList
+                = document.getElementsByName('gender');
+        }
 
-                <script th:inline="javascript">
-                    function getGender() {
+        function findAddr() {
+            new daum.Postcode({
+                oncomplete: function (data) {
 
-                        const genderNodeList
-                            = document.getElementsByName('gender');
+                    console.log(data);
+
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                    // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var roadAddr = data.roadAddress; // 도로명 주소 변수
+                    var jibunAddr = data.jibunAddress; // 지번 주소 변수
+                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                    document.getElementById('member_post').value = data.zonecode;
+                    if (roadAddr !== '') {
+                        document.getElementById("member_addr").value = roadAddr;
+                    } else if (jibunAddr !== '') {
+                        document.getElementById("member_addr").value = jibunAddr;
                     }
-                </script>
-                <label>E-mail</label><br>
-                <div class="form-floating">
-                    <input type="email" class="form-control text-input" id="floatingInput" name="email"
-                           placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
+                }
+            }).open();
+        }
+    </script>
+</th:block>
+
+<div layout:fragment="content">
+    <main class="container">
+
+        <form class="singup-menu" id="regForm" action="/members/new" method="post" th:object="${member}"
+              onsubmit="return fn_submitChk();">
+
+            <H2 class="text-center mt-5">[[${pageTitle}]]</H2>
+            <div class="mt-5 sign-view">
+                <div class="form-group">
+                    <input type="hidden" th:name="${code}">
+                    <label>이름</label><br>
+                    <input class="text-input form-control" type="text" name="name" placeholder=" 이름을 입력하세요."><br>
+                    <label>아이디</label>
+                    <button type="button" class="menu-btn me-1" id="idChk" onclick="fn_idChk()" value="N">중복확인</button>
+                    <br>
+                    <input class="text-input form-control" type="text" name="id" id="userid" placeholder=" 아이디를 입력하세요."><br>
+
+
+                    <label>비밀번호</label><br>
+                    <input class="text-input form-control" type="password" name="pw" id="userpw"
+                           placeholder=" 비밀번호를 입력하세요."><br>
+                    <label>비밀번호 재확인</label><br>
+                    <input class="text-input form-control" type="password" id="confirm_password"
+                           placeholder=" 비밀번호를 입력하세요."><br>
+                    <label>닉네임</label>
+                    <button type="button" class="menu-btn me-1" id="nickChk" onclick="fn_nickChk()">중복확인</button>
+                    <br>
+                    <input class="text-input form-control" type="text" name="nickname" id="usernickname"
+                           placeholder=" 닉네임을 입력하세요."><br>
+
+                    <label>성별(선택)</label><br>
+                    <input class="form-check-input" id="gender_man" type="radio" name="gender" value="M" checked>남
+                    &nbsp;
+                    <input class="form-check-input" id="gender_woman" type="radio" name="gender" value="W">여 <br>
+
+                    <label>E-mail</label><br>
+                    <div class="form-floating">
+                        <input type="email" class="form-control text-input" id="floatingInput" name="email"
+                               placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <br>
+                    <label class="mb-2">주소</label><input type="text" name="useraddr" id="member_post"
+                                                         class="form-control w-25">
+                    <button type="button" class="add-btn mt-1 mb-1" name="addr" onclick="findAddr()">우편번호</button>
+                    <br>
+                    <input id="member_addr" class="text-input form-control" name="useraddr" type="text"
+                           placeholder=" 기본주소" ch><br>
+                    <input id="" class="text-input form-control" type="text" name="useraddr" placeholder=" 상세주소">
+
+                    <div class="text-center mt-3">
+                        <button type="submit" id="sign-btn">회원가입</button>
+                    </div>
                 </div>
-                <br>
-                <label class="mb-2">주소</label><input type="text" name="useraddr" id="member_post" class="form-control w-25">
-                <button type="button" class="add-btn mt-1 mb-1" name="addr" onclick="findAddr()">우편번호</button>
-                <br>
-                <input id="member_addr" class="text-input form-control" name="useraddr" type="text" placeholder=" 기본주소" ch><br>
-                <input id="" class="text-input form-control" type="text" name="useraddr" placeholder=" 상세주소">
-
-                <script th:inline="javascript">
-                    function findAddr(){
-                        new daum.Postcode({
-                            oncomplete: function(data) {
-
-                                console.log(data);
-
-                                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-                                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                                var roadAddr = data.roadAddress; // 도로명 주소 변수
-                                var jibunAddr = data.jibunAddress; // 지번 주소 변수
-                                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                                document.getElementById('member_post').value = data.zonecode;
-                                if(roadAddr !== ''){
-                                    document.getElementById("member_addr").value = roadAddr;
-                                }
-                                else if(jibunAddr !== ''){
-                                    document.getElementById("member_addr").value = jibunAddr;
-                                }
-                            }
-                        }).open();
-                    }
-                </script>
-
-                <div class="text-center mt-3">
-                    <button type="submit" id="sign-btn">회원가입</button>
-                </div>
             </div>
-        </div>
-    </form>
-</main>
-
-
-<footer>
-    <div class="container">
-        <div class="first-line">
-            <div class="fot-a">
-                <a href="/"
-                   onclick="window.open(`/`, '회사소개','width=500px, height=700px'); return false">회사소개</a>
-                <span> | </span>
-                <a href="#">이용약관</a>
-                <span> | </span>
-                <a href="#">개인정보처리방침</a>
-            </div>
-            <div class="Messenger">
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-        <div class="second-line">
-            <div>상호명 (주) COSVIEW 대표 : 4조</div>
-            <div>사업자 등록 번호 : 812 - 16 - 00156 | 대구 중구 남산4동 00타워</div>
-            <div>대표 전화 번호 : 010 - 9142 - 8786</div>
-            <div>email : sbg03202 @ naver.com</div>
-        </div>
-    </div>
-</footer>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-<script src="/js/main.js"></script>
-
-</body>
+        </form>
+    </main>
+</div>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="layout/layout"
+>
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script"> </th:block>
+
+<div layout:fragment="content">
+    <main class="container">
+        <div class="sub-title">
+            <h1>회원탈퇴</h1>
+        </div>
+        <div class="success-page">
+            <img src="/image/check.png" alt="check logo">
+            <h2>탈퇴가 완료되었습니다.</h2><hr>
+            <h5>그동안 코스뷰를 이용해 주셔서 감사합니다.<br>
+                보다 나은 서비스로 찾아뵙겠습니다..</h5>
+            <button onClick="location.href='/Main/Home'" style="height:50px; margin:5%;">COSVIEW 메인화면</button>
+
+
+        </div>
+    </main>
+</div>
+</html>

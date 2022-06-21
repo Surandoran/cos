@@ -2,7 +2,6 @@ package com.example.cosmetic.service;
 
 import com.example.cosmetic.dto.Member;
 import com.example.cosmetic.repository.MemberRepository;
-import com.example.cosmetic.repository.SpringDataJpaMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

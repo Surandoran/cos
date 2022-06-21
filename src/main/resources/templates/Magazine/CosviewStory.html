@@ -1,87 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COSVIEW</title>
-    <link href="/image/logo4.png" rel="shortcut icon" type="/image/x-icon">
-    <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/Common.css">
-    <link rel="stylesheet" href="/CSS/nav.css">
-    <link rel="stylesheet" href="/CSS/Footer.css">
-    
-<body>
-  <nav class="nav-var">
-    <div class="logo" id="logo4">
-      <a href="/"><img src="/image/logo4.png" width="45" height="45"></a>
-    </div>
-    <div class="category">
-      <button id="nav-btn" class="navbar-toggler collapsed" onclick="openNav()"><i class="fa-solid fa-bars "></i></button>
-    </div>
-    <div class="side-menu" id="mySidenav">
-      <a href="/"><img src="/image/logo2.png" width="100%" height="60px" alt=""></a>
-      <div class="side-menu-center">
-        <div class="side-menu-list" id="menu-list">
-         <ul class="main-side">
-            <li><a href="/Product/ProductMain">제품</a></li>
-           <li><a>코스뷰 이야기</a></li>
-           <li><a href="/ServiceCenter/CSCenter">고객센터</a></li>
-           <li><a>마이 페이지</a></li>
-         </ul>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="layout/layout"
+>
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script"> </th:block>
+
+<div layout:fragment="content">
+    <main class="container">
+        <h1 class="sub-title">COSVIEW 이야기</h1>
+
+        <div class="wrapper">
+            <a href="#">
+                <div class="card">
+                    <img src="/image/선크림.png" alt="cosmetic.png">
+                    <div class="iteminfo">
+                        <h6>2022 여름이 돌아왔다!!! 인기 선크림 Top10</h6>
+                        <p>
+                            선크림의 계절인 여름이 돌아왔습니다! COSVIEW에서 2021 여름 시즌동안 가장 많이 판매된
+                            선크림을 조사해보았습니다. 연령대별, 성별로 나누어 인기 선크림 Top10을 선정하여
+                            여러분들께 보여드리겠습니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <img src="/image/크림.png" alt="cosmetic.png">
+                    <div class="iteminfo">
+                        <h6>2022 여름이 돌아왔다!!! 인기 크림 Top10</h6>
+                        <p>
+                            여름에는 보습력있는 크림보단 산뜻한 크림을 선호하곤 하죠! COSVIEW에서
+                            2021 여름 시즌동안 가장 많이 판매된 크림을 조사해보았습니다.
+                            연령대별, 성별로 나누어 인기 크림 Top10을 선정하여 여러분들께 보여드리겠습니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <img src="/image/밤.png" alt="cosmetic.png">
+                    <div class="iteminfo">
+                        <h6>2022 여름이 돌아왔다!!! 인기 바디밤 Top10</h6>
+                        <p>
+                            여름이라고 해서 바디 보습을 포기할 순 없죠!! 선크림을 사용하다보면 더욱 건조함을 느끼는데요,
+                            COSVIEW에서 2021 여름 시즌동안 가장 많이 판매된 바디밤을 조사해보았습니다.
+                            연령대별, 성별로 나누어 인기 바디밤 Top10을 선정하여 여러분들께 보여드리겠습니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <img src="/image/회사이미지.jpg" alt="company.png">
+                    <div class="iteminfo">
+                        <h6>COSVIEW를 소개합니다</h6>
+                        <p>
+                            COSVIEW는 소비자 누구나 화장품을 사용해보고 후기를 공유하는 페이지 입니다.
+                            화장품은 우리 삶의 일부가 되었고, 그에 따라 화장품 소비는 매년 꾸준히 증가하고 있습니다.
+                            더불어 많은 기업에서 화장품 사업에 뛰어들어 화장품의 수는 무분별히 증가하였습니다.
+                            우리는 이러한 화장품 시장에서 소비자가 더욱 쉽게 뛰어난 화장품을 선택하고
+                            구매하도록 하자는 목표를 가지고 프로그램을 개발하게 되었습니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <img src="/image/회사이미지2.jpg" alt="company.png">
+                    <div class="iteminfo">
+                        <h6>COSVIEW 개발팀을 소개합니다</h6>
+                        <p>
+                            COSVIEW 개발팀은 국비수업 '정보처리산업기사'자격과정에서 인연이 닿아 결성되었습니다.
+                            저희 팀원은 서로 학습과 휴식시간에 대해 관섭하지 않으며 자율적으로 학습하고 개발해나갑니다.
+                            그럼에도 개발이 원활히 진행되는 이유는 스스로 꾸준히 학습하여 지속적으로 성장해나가고 있으며,
+                            이러한 부분이 팀 전체의 성장에 원동력이 되었기 때문이라 생각됩니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <img src="/image/크림.png" alt="cosmetic.png">
+                    <div class="iteminfo">
+                        <h6>2022 여름이 돌아왔다!!! 인기 크림 Top10</h6>
+                        <p>
+                            여름에는 보습력있는 크림보단 산뜻한 크림을 선호하곤 하죠! COSVIEW에서
+                            2021 여름 시즌동안 가장 많이 판매된 크림을 조사해보았습니다.
+                            연령대별, 성별로 나누어 인기 크림 Top10을 선정하여 여러분들께 보여드리겠습니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <img src="/image/밤.png" alt="cosmetic.png">
+                    <div class="iteminfo">
+                        <h6>2022 여름이 돌아왔다!!! 인기 바디밤 Top10</h6>
+                        <p>
+                            여름이라고 해서 바디 보습을 포기할 순 없죠!! 선크림을 사용하다보면 더욱 건조함을 느끼는데요,
+                            COSVIEW에서 2021 여름 시즌동안 가장 많이 판매된 바디밤을 조사해보았습니다.
+                            연령대별, 성별로 나누어 인기 바디밤 Top10을 선정하여 여러분들께 보여드리겠습니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <img src="/image/회사이미지.jpg" alt="company.png">
+                    <div class="iteminfo">
+                        <h6>COSVIEW를 소개합니다</h6>
+                        <p>
+                            COSVIEW는 소비자 누구나 화장품을 사용해보고 후기를 공유하는 페이지 입니다.
+                            화장품은 우리 삶의 일부가 되었고, 그에 따라 화장품 소비는 매년 꾸준히 증가하고 있습니다.
+                            더불어 많은 기업에서 화장품 사업에 뛰어들어 화장품의 수는 무분별히 증가하였습니다.
+                            우리는 이러한 화장품 시장에서 소비자가 더욱 쉽게 뛰어난 화장품을 선택하고
+                            구매하도록 하자는 목표를 가지고 프로그램을 개발하게 되었습니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="card">
+                    <img src="/image/회사이미지2.jpg" alt="company.png">
+                    <div class="iteminfo">
+                        <h6>COSVIEW 개발팀을 소개합니다</h6>
+                        <p>
+                            COSVIEW 개발팀은 국비수업 '정보처리산업기사'자격과정에서 인연이 닿아 결성되었습니다.
+                            저희 팀원은 서로 학습과 휴식시간에 대해 관섭하지 않으며 자율적으로 학습하고 개발해나갑니다.
+                            그럼에도 개발이 원활히 진행되는 이유는 스스로 꾸준히 학습하여 지속적으로 성장해나가고 있으며,
+                            이러한 부분이 팀 전체의 성장에 원동력이 되었기 때문이라 생각됩니다.
+                        </p>
+                    </div>
+                </div>
+            </a>
         </div>
-      </div>
-    </div>
-    <div class="menu-var">
-      <button><a href="/Login/login">로그인</a></button>
-      <button><a href="/Search/search"><i class="fa-solid fa-magnifying-glass"></i></a></button>
-    </div>
-  </nav>
-
-
-
-
-      <!-- 여기 코드 작성 해주세요 !!! -->
-      <main class="container">
-            <h1 class="sub-title">제목</h1>
-
-            <p></p>
-        
-      </main>
-
-
-
-
-      <footer>
-        <div class="container">
-          <div class="first-line">
-            <div class="fot-a">
-              <a href="/" onclick="window.open(`/`, '회사소개','width=500px, height=700px'); return false">회사소개</a>
-              <span> | </span>
-              <a href="#">이용약관</a>
-              <span> | </span>
-              <a href="#">개인정보처리방침</a>
-            </div>
-            <div class="Messenger">
-              <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-              <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-          </div>
-          <div class="second-line">
-            <div>상호명 (주) COSVIEW 대표 : 4조</div>
-            <div>사업자 등록 번호 : 812 - 16 - 00156 |  대구 중구 남산4동 00타워</div>
-            <div>대표 전화 번호 : 010 - 9142 - 8786</div>
-            <div>email : sbg03202 @ naver.com</div>
-          </div>
+        <div class="pageNav">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-      </footer>
-
-
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <script src="/js/main.js"></script>
-      
-</body>
+    </main>
+</div>
 </html>

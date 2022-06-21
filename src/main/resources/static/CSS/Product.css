@@ -132,7 +132,38 @@ width: 29px; height: 29px;
   }
 
 
-
+/* ProductReview.css */
+    .productInfo{
+      display: flex;
+    }
+    .productPicture img{
+        width: 250px;
+        height: 250px;
+    }
+    .productPicture ul{
+      list-style: none; 
+      padding: 0px;
+    }
+    .swiper{
+      width: 25%;
+      margin-top: 50px;
+      margin-left: 28%;
+    }
+    .swiper-pagination>span{
+      background-color: lightgray;
+      height: 10px; width: 10px;
+    }
+    .swiper-button-prev{
+      color: gray;
+    }
+    .swiper-button-next{
+      color: gray;
+    }
+    .productContents{
+      position: relative;
+      left: 55%;
+      top: -39%;
+    }
 
 /* ReviewWrite.css */
 #line{
@@ -259,7 +290,6 @@ width: 29px; height: 29px;
     display: flex;
     justify-content: center;
 }
-
 
 
 
