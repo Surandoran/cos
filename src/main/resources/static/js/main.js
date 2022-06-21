@@ -1,4 +1,4 @@
-let navflag = true;
+let navflag = false;
 
 
 const openCate = () => {
@@ -7,47 +7,47 @@ const openCate = () => {
 
 
 const openNav = () => {
-    if (navflag == true){
+    if (navflag == true) {
         document.getElementById("mySidenav").style.width = "200px";
-        document.getElementById("menu-list").style.display= 'flex';
-        document.getElementById("menu-list").style.alignItems= 'center';
-        document.getElementById("logo4").style.visibility= 'hidden';
+        document.getElementById("menu-list").style.display = 'flex';
+        document.getElementById("menu-list").style.alignItems = 'center';
+        document.getElementById("logo4").style.visibility = 'hidden';
         navflag = false
-    }else{
+    } else {
         document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("menu-list").style.display= 'none';
-        document.getElementById("logo4").style.visibility= 'visible';
+        document.getElementById("menu-list").style.display = 'none';
+        document.getElementById("logo4").style.visibility = 'visible';
         navflag = true
     }
 };
-$(document).ready(function(){
-$('.one-time').slick({
-    dots: true,
-    infinite: true,
-    speed: 200,
-    slidesToShow: 1,
-    slidesToScroll:1,
-    adaptiveHeight: true,
-    vertical : false,
-    prevArrow:"<button id=prev>&lt;</button>",
-    nextArrow:"<button id=next>&gt;</button>",
-    dots:true,
-    dotsClass:'bn-controller' ,
-});
-$('.multiple-items').slick({
-    infinite: true,
-    slidesToShow: 2,
-    speed: 1000,
-    autoplaySpeed : 2000,
-    arrows : false,   //prev,next버튼 표시여부
-    autoplay: true,  //자동넘김 여부
-    slidesToScroll: 3
-});
+$(document).ready(function () {
+    $('.one-time').slick({
+        dots: true,
+        infinite: true,
+        speed: 200,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+        vertical: false,
+        prevArrow: "<button id=prev>&lt;</button>",
+        nextArrow: "<button id=next>&gt;</button>",
+        dots: true,
+        dotsClass: 'bn-controller',
+    });
+    $('.multiple-items').slick({
+        infinite: true,
+        slidesToShow: 2,
+        speed: 1000,
+        autoplaySpeed: 2000,
+        arrows: false,   //prev,next버튼 표시여부
+        autoplay: true,  //자동넘김 여부
+        slidesToScroll: 3
+    });
 
 })
 
 //메인 스크롤 이벤트
-$(document).ready(function() {
+$(document).ready(function () {
     let controller = new ScrollMagic.Controller();
     let animateElem = [".animate_1", ".animate_2", ".animate_3"];
     let triggerElem = [".trigger_1", ".trigger_2", ".trigger_3"];

@@ -2,17 +2,17 @@ package com.example.cosmetic.controller;
 
 import com.example.cosmetic.dto.Member;
 import com.example.cosmetic.dto.MemberEntity;
-import com.example.cosmetic.repository.JpaMemberRepository;
 import com.example.cosmetic.repository.MemberRepository;
-import com.example.cosmetic.repository.MemoryMemberRepository;
 import com.example.cosmetic.repository.SpringDataJpaMemberRepository;
 import com.example.cosmetic.service.MemberService;
+import com.example.cosmetic.service.UserNotFoundException;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,21 +28,24 @@ public class MemberController {
 
 
     private final MemberService memberService;
-    SpringDataJpaMemberRepository springDataJpaMemberRepository;
+    private MemberRepository memberRepository;
 
     @Autowired
-    public MemberController(MemberService memberService, SpringDataJpaMemberRepository springDataJpaMemberRepository) {
+    public MemberController(MemberService memberService, MemberRepository memberRepository) {
         this.memberService = memberService;
-        this.springDataJpaMemberRepository = springDataJpaMemberRepository;
+        this.memberRepository = memberRepository;
     }
 
     @GetMapping(value = "/members/new")
-    public String createForm() {
+    public String createForm(Model model) {
+        model.addAttribute("member", new Member());
+        model.addAttribute("pagetitle", "COSVIEW");
+
         return "Login/Singup";
     }
 
     @PostMapping(value = "/members/new")
-    public String create(MemberEntity memberEntity){
+    public String create(MemberEntity memberEntity, RedirectAttributes ra){
         try {
             Member member1 = new Member();
             member1.setName(memberEntity.getName());
@@ -54,12 +57,12 @@ public class MemberController {
             member1.setPhone(memberEntity.getPhone());
             member1.setGender(memberEntity.getGender());
 
-            System.out.println(member1);
+            ra.addFlashAttribute("message","The user has been saved successfully.");
 
             memberService.join(member1);
 
             if (member1.getCode() != null) {
-                return "redirect:/";
+                return "redirect:/members/new";
             } else {
                 return "members/new";
             }
@@ -76,7 +79,6 @@ public class MemberController {
 
         //아이디 중복 체크를 확인하기 위한 변수
         boolean result = true;
-        Long code;
 
         try{
             System.out.println("userid: " + userid);
@@ -84,7 +86,7 @@ public class MemberController {
             //findById 로 DB에 아이디가 저장되어있는지 여부 확인
             //만약 저장되어 있다면 chkID 값에 DB 에 있는 아이디가 찾아진 후 result = false
             //아니면 데이터를 찾을 수 없어 에러가 발생할 것임
-            String chkID = springDataJpaMemberRepository.findById(userid).getId();
+            String chkID = memberRepository.findById(userid).getId();
             System.out.println("DB: " + chkID);
             if(chkID.equals(userid)){
                 result = false;
@@ -125,7 +127,7 @@ public class MemberController {
             //findById 로 DB에 아이디가 저장되어있는지 여부 확인
             //만약 저장되어 있다면 chkID 값에 DB 에 있는 아이디가 찾아진 후 result = false
             //아니면 데이터를 찾을 수 없어 에러가 발생할 것임
-            String chknick = springDataJpaMemberRepository.findByNickname(nickname).getNickname();
+            String chknick = memberRepository.findByNickname(nickname).getNickname();
             System.out.println("DB: " + chknick);
             if(chknick.equals(nickname)){
                 result = false;
@@ -151,12 +153,29 @@ public class MemberController {
         out.print(jso.toString());
     }
 
+    //전체조회
     @GetMapping(value = "/members")
     public String list(Model model){
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
         return "members/memberList";
     }
+
+    @GetMapping("/members/edit/{code}")
+    public String showEditForm(@PathVariable("code") Long code, Model model, RedirectAttributes ra) {
+        try {
+            Member member = memberService.get(code);
+            model.addAttribute("member", member);
+            model.addAttribute("pageTitle", "Edit User (ID: " + code + ")");
+            return "Login/Singup";
+        } catch (UserNotFoundException e) {
+            ra.addFlashAttribute("message", "The user has been saved successfully.");
+            return "redirect:/members/new";
+        }
+    }
+
+
+
 
 
 

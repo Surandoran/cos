@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>COSVIEW</title>
+    <title>[[${pageTitle}]]</title>
 
     <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"-->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -51,10 +51,11 @@
 
 
 <main class="container">
-    <form class="singup-menu" id="regForm" action="/members/new" method="post" onsubmit="return fn_submitChk();">
+    =
+    <form class="singup-menu" id="regForm" action="/members/new" method="post" th:object="${member}" onsubmit="return fn_submitChk();">
         <script th:inline="javascript">
             function fn_submitChk() {
-                <!-- var idChk_val = $("#idChk").val();-->
+                    <!-- var idChk_val = $("#idChk").val();-->
                 if (regForm.name.value == "") {
                     regForm.name.focus();
                     alert("이름을 입력해주세요");
@@ -102,9 +103,10 @@
                 }
             }
         </script>
-        <H2 class="text-center mt-5">회원 정보 입력</H2>
+        <H2 class="text-center mt-5">[[${pageTitle}]]</H2>
         <div class="mt-5 sign-view">
             <div class="form-group">
+                <input type="hidden" th:name="${code}">
                 <label>이름</label><br>
                 <input class="text-input form-control" type="text" name="name" placeholder=" 이름을 입력하세요."><br>
                 <label>아이디</label>
