@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @Transactional
 @Service
-public class MemberService implements UserDetailsService {
+public class MemberService implements UserDetailsService{
 
     private final MemberRepository memberRepository;
 
@@ -80,11 +80,13 @@ public class MemberService implements UserDetailsService {
         throw new UserNotFoundException("Colud not find any users with Code " + code);
     }
 
-    public void delete(Long code) {
-        Long count = memberRepository.countByCode(code);
-        if ( count == null || count == 0) {
-            throw new UsernameNotFoundException("Could not find any users with code " + code);
+    public void delete(Member member) {
+        Long count = member.getCode();
+        if ( count != null || count == 0) {
+            throw new UsernameNotFoundException("Could not find any users with code " + count);
         }
-        memberRepository.findByCode(code);
+        memberRepository.deleteById(member);
+
     }
+
 }

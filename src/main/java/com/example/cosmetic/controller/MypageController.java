@@ -16,4 +16,9 @@ public class MypageController {
         return "Mypage/my_page";
     }
 
+    @GetMapping("/Mypage/reg_cancel")
+    public String reg_cancel(){
+        return "Mypage/reg_cancel";
+    }
+
 }

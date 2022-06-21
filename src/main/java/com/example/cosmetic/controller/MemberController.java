@@ -6,7 +6,6 @@ import com.example.cosmetic.repository.MemberRepository;
 import com.example.cosmetic.service.MemberService;
 import com.example.cosmetic.service.UserNotFoundException;
 import org.json.simple.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,6 @@ public class MemberController {
     private final MemberService memberService;
     private MemberRepository memberRepository;
 
-    @Autowired
     public MemberController(MemberService memberService, MemberRepository memberRepository) {
         this.memberService = memberService;
         this.memberRepository = memberRepository;
@@ -57,7 +55,7 @@ public class MemberController {
             memberService.join(member1);
 
             if (member1.getCode() != null) {
-                return "redirect:/members";
+                return "redirect:/Login/LoginCompletion";
             } else {
                 return "members/new";
             }
@@ -164,10 +162,20 @@ public class MemberController {
             model.addAttribute("pageTitle", "Edit User (ID: " + code + ")");
             return "Login/Singup";
         } catch (UserNotFoundException e) {
-            ra.addFlashAttribute("message", "The user has been saved successfully.");
+            ra.addFlashAttribute("message", e.getMessage());
             return "redirect:/members";
         }
     }
 
+    @GetMapping("/members/delete/{code}")
+    public String deleteMember(@PathVariable("code") Member member, RedirectAttributes ra) {
+        try {
+            memberService.delete(member);
+            ra.addFlashAttribute("message", "The member code " + member.getCode() + " has been deleted.");
+        } catch (Exception e) {
+            ra.addFlashAttribute("message", e.getMessage());
+        }
+        return "redirect:/members";
+    }
 
 }

@@ -8,16 +8,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
-    private MemberService memberService;
 
     @GetMapping("/Login/id")
     public String id(){
         return "Login/id";
     }
 
-    @GetMapping("/Login/login")
-    public String login(){
-        return "Login/login";
+    @GetMapping("/Login/login333")
+    public String login123(){
+        return "Login/MemberLogin";
     }
 
     @GetMapping("/Login/LoginCompletion")
@@ -35,9 +34,5 @@ public class LoginController {
         return "Login/pwSet";
     }
 
-    @GetMapping("/Login/reg_cancel")
-    public String reg_cancel(){
-        return "Login/reg_cancel";
-    }
 
 }
