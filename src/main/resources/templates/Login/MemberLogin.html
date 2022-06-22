@@ -16,21 +16,21 @@
             <img src="/image/logo2.png" style="width: 300px; height: 120px;" alt="Logo">
         </div>
 
-        <form action="">
-            <table style="margin: 0 auto; width: 400px;">
+        <form action="/" method="get">
+            <table align="center" width="400px">
                 <tr class="log-input">
                     <td style="font-size: 25px;">ID</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="id" placeholder="ID 입력"></td>
                 </tr>
                 <tr class="log-input">
                     <td style="font-size: 25px;">PW</td>
-                    <td><input type="text" placeholder="비밀번호를 입력하세요"></td>
+                    <td><input type="password" name="pw" placeholder="PW 입력"></td>
                 </tr>
             </table>
+            <div class="text-center mt-3">
+                <button class="log-btn" type="submit">로그인</button>
+            </div>
         </form>
-        <div class="text-center mt-3">
-            <button type="button" class="log-btn">로그인</button>
-        </div>
         <div class="text-center mt-3 login-etc">
             <a href="/Login/id">아이디 찾기</a>|
             <a href="/Login/pw">비밀번호 찾기</a>|

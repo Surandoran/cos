@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <header th:fragment="headerFragment">
     <meta charset="UTF-8">
@@ -30,7 +31,9 @@
         <div class="menu-var">
             <button type="button" onclick="location.href='/members'">회원목록</button>
             <button type="button" onclick="location.href='/members/new'">회원가입</button>
-            <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{Login/login333}">로그인</a>
+            <a class="nav-link" sec:authorize="isAnonymous()" >
+                <button type="button" onclick="location.href='/Login/MemberLogin'">로그인</button>
+            </a>
             <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{Login/logout}" href="">로그아웃</a>
             <button onclick="location.href='/Search/search'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>

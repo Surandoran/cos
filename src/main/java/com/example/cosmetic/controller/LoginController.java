@@ -1,10 +1,7 @@
 package com.example.cosmetic.controller;
 
-import com.example.cosmetic.dto.Member;
-import com.example.cosmetic.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
@@ -14,7 +11,7 @@ public class LoginController {
         return "Login/id";
     }
 
-    @GetMapping("/Login/login333")
+    @GetMapping("/Login/MemberLogin")
     public String login123(){
         return "Login/MemberLogin";
     }
@@ -32,6 +29,11 @@ public class LoginController {
     @GetMapping("/Login/pwSet")
     public String pwset(){
         return "Login/pwSet";
+    }
+
+    @GetMapping("/Login/Update")
+    public String update(){
+        return "Login/Update";
     }
 
 

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public interface MemberRepository extends CrudRepository<Member, Long> {
+public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Member save(Member member);
     Optional<Member> findByCode(Long code);
@@ -19,7 +19,7 @@ public interface MemberRepository extends CrudRepository<Member, Long> {
     Member findById(String id);
     Optional<Member> findByid(String id);
     Member findByNickname(String nickname);
-    Member deleteById(Member member);
+
 
 
 }

@@ -158,6 +158,11 @@ public class MemberController {
     public String showEditForm(@PathVariable("code") Long code, Model model, RedirectAttributes ra) {
         try {
             Member member = memberService.get(code);
+            if(code == member.getCode()){
+                memberService.deleteById(code);
+            } else{
+                memberService.get(code);
+            }
             model.addAttribute("member", member);
             model.addAttribute("pageTitle", "Edit User (ID: " + code + ")");
             return "Login/Singup";
@@ -168,10 +173,10 @@ public class MemberController {
     }
 
     @GetMapping("/members/delete/{code}")
-    public String deleteMember(@PathVariable("code") Member member, RedirectAttributes ra) {
+    public String deleteMember(@PathVariable("code") Long code, RedirectAttributes ra) {
         try {
-            memberService.delete(member);
-            ra.addFlashAttribute("message", "The member code " + member.getCode() + " has been deleted.");
+            memberService.deleteById(code);
+            ra.addFlashAttribute("message", "The member code " + code + " has been deleted.");
         } catch (Exception e) {
             ra.addFlashAttribute("message", e.getMessage());
         }
