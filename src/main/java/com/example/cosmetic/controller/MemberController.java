@@ -42,19 +42,19 @@ public class MemberController {
         try {
             Member member1 = new Member();
             member1.setName(memberEntity.getName());
+            member1.setName2(memberEntity.getName2());
             member1.setId(memberEntity.getId());
             member1.setPw(memberEntity.getPw());
             member1.setNickname(memberEntity.getNickname());
             member1.setEmail(memberEntity.getEmail());
             member1.setAddr(memberEntity.getAddr());
-            member1.setPhone(memberEntity.getPhone());
             member1.setGender(memberEntity.getGender());
 
             ra.addFlashAttribute("message","The user has been saved successfully.");
 
             memberService.join(member1);
 
-            if (member1.getCode() != null) {
+            if (member1.getId() != null) {
                 return "redirect:/Login/LoginCompletion";
             } else {
                 return "members/new";
@@ -68,20 +68,20 @@ public class MemberController {
     @RequestMapping(value = "/member/idChk", method = {RequestMethod.POST})
     public void memberChk(HttpServletResponse res, HttpServletRequest req, Model model) throws IOException {
         //request 요청 파라미터로 넣어온 값 중 userid 를 가져와서 저장
-        String userid = req.getParameter("userid");
+        String username = req.getParameter("username");
 
         //아이디 중복 체크를 확인하기 위한 변수
         boolean result = true;
 
         try{
-            System.out.println("userid: " + userid);
+            System.out.println("username: " + username);
 
             //findById 로 DB에 아이디가 저장되어있는지 여부 확인
             //만약 저장되어 있다면 chkID 값에 DB 에 있는 아이디가 찾아진 후 result = false
             //아니면 데이터를 찾을 수 없어 에러가 발생할 것임
-            String chkID = memberRepository.findById(userid).getId();
+            String chkID = memberRepository.findByName(username).getName();
             System.out.println("DB: " + chkID);
-            if(chkID.equals(userid)){
+            if(chkID.equals(username)){
                 result = false;
                 System.out.println("중복된 아이디입니다" + result);
             }
@@ -112,7 +112,7 @@ public class MemberController {
 
         //아이디 중복 체크를 확인하기 위한 변수
         boolean result = false;
-        Long code;
+        Long id;
 
         try{
             System.out.println("userid: " + nickname);
@@ -154,17 +154,17 @@ public class MemberController {
         return "members/memberList";
     }
 
-    @GetMapping("/members/edit/{code}")
-    public String showEditForm(@PathVariable("code") Long code, Model model, RedirectAttributes ra) {
+    @GetMapping("/members/edit/{id}")
+    public String showEditForm(@PathVariable("id") Long id, Model model, RedirectAttributes ra) {
         try {
-            Member member = memberService.get(code);
-            if(code == member.getCode()){
-                memberService.deleteById(code);
+            Member member = memberService.get(id);
+            if(id == member.getId()){
+                memberService.deleteById(id);
             } else{
-                memberService.get(code);
+                memberService.get(id);
             }
             model.addAttribute("member", member);
-            model.addAttribute("pageTitle", "Edit User (ID: " + code + ")");
+            model.addAttribute("pageTitle", "Edit User (ID: " + id + ")");
             return "Login/Singup";
         } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
@@ -172,11 +172,11 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/members/delete/{code}")
-    public String deleteMember(@PathVariable("code") Long code, RedirectAttributes ra) {
+    @GetMapping("/members/delete/{id}")
+    public String deleteMember(@PathVariable("id") Long id, RedirectAttributes ra) {
         try {
-            memberService.deleteById(code);
-            ra.addFlashAttribute("message", "The member code " + code + " has been deleted.");
+            memberService.deleteById(id);
+            ra.addFlashAttribute("message", "The member ID " + id + " has been deleted.");
         } catch (Exception e) {
             ra.addFlashAttribute("message", e.getMessage());
         }

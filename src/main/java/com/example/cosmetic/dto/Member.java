@@ -19,19 +19,18 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
-    @Column(name = "code")
-    private Long code;
+    @Column(name = "id")
+    private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "id")
-    private String id;
+    @Column()
+    private String name2;
     @Column(name = "pw")
     private String pw;
     @Column(name = "nickname")
     private String nickname;
     @Column(name = "email")
     private String Email;
-    private String phone;
     private String addr;
     private String gender;
 
@@ -39,18 +38,4 @@ public class Member {
 
     }
 
-    public Member toEntity() {
-        return Member.builder()
-                .code(code)
-                .id(id)
-                .pw(pw)
-                .build();
-    }
-
-    @Builder
-    public Member(Long code ,String id ,String pw){
-        this.code = code;
-        this.id = id;
-        this.pw = pw;
-    }
 }

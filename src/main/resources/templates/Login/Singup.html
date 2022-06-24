@@ -17,8 +17,8 @@
                 alert("이름을 입력해주세요");
                 return false;
             }
-            if (regForm.userid.value == "") {
-                regForm.userid.focus();
+            if (regForm.username.value == "") {
+                regForm.username.focus();
                 alert("아이디를 입력해주세요")
                 return false;
             }
@@ -42,18 +42,18 @@
                 alert("이메일을 입력해주세요")
                 return false;
             }
-            if (regForm.useraddr.value == "") {
-                regForm.useraddr.focus();
+            if (regForm.addr.value == "") {
+                regForm.addr.focus();
                 alert("주소를 입력해주세요");
                 return false;
             }
             if ($('#idChk').val == "N") {
-                regForm.userid.focus();
+                regForm.username.focus();
                 alert("아이디 중복 확인이 필요합니당");
                 return false;
             }
             if ($('#nickChk').val == "N") {
-                regForm.usernickname.focus();
+                regForm.nickname.focus();
                 alert("닉네임 중복 확인이 필요합니당~~!@~!~!~!~!~");
                 return false;
             }
@@ -62,7 +62,7 @@
         function fn_idChk() {
             // request 파라미터에 userid 를 넣어서 서버단으로 보냄
             var params = {
-                userid: $('#userid').val()
+                username: $('#username').val()
             }
 
             $.ajax({
@@ -143,7 +143,7 @@
                     // 우편번호와 주소 정보를 해당 필드에 넣는다.
                     document.getElementById('member_post').value = data.zonecode;
                     if (roadAddr !== '') {
-                        document.getElementById("member_addr").value = roadAddr;
+                        document.getElementById("member_roadaddr").value = roadAddr;
                     } else if (jibunAddr !== '') {
                         document.getElementById("member_addr").value = jibunAddr;
                     }
@@ -162,13 +162,14 @@
             <H2 class="text-center mt-5">[[${pageTitle}]]</H2>
             <div class="mt-5 sign-view">
                 <div class="form-group">
-                    <input type="hidden" th:name="${code}">
+                    <input type="hidden" th:name="${id}">
                     <label>이름</label><br>
-                    <input class="text-input form-control" type="text" name="name" placeholder=" 이름을 입력하세요."><br>
+                    <input class="text-input form-control" type="text" name="name2" placeholder=" 이름을 입력하세요."><br>
                     <label>아이디</label>
                     <button type="button" class="menu-btn me-1" id="idChk" onclick="fn_idChk()" value="N">중복확인</button>
                     <br>
-                    <input class="text-input form-control" type="text" name="id" id="userid" placeholder=" 아이디를 입력하세요."><br>
+                    <input class="text-input form-control" type="text" name="name" id="username"
+                           placeholder=" 아이디를 입력하세요."><br>
 
 
                     <label>비밀번호</label><br>
@@ -180,7 +181,7 @@
                     <label>닉네임</label>
                     <button type="button" class="menu-btn me-1" id="nickChk" onclick="fn_nickChk()">중복확인</button>
                     <br>
-                    <input class="text-input form-control" type="text" name="nickname" id="usernickname"
+                    <input class="text-input form-control" type="text" name="nickname" id="nickname"
                            placeholder=" 닉네임을 입력하세요."><br>
 
                     <label>성별(선택)</label><br>
@@ -195,13 +196,13 @@
                         <label for="floatingInput">Email address</label>
                     </div>
                     <br>
-                    <label class="mb-2">주소</label><input type="text" name="useraddr" id="member_post"
-                                                         class="form-control w-25">
-                    <button type="button" class="add-btn mt-1 mb-1" name="addr" onclick="findAddr()">우편번호</button>
+                    <label class="mb-2">주소</label>
+                    <input type="text" name="addr" id="member_post" class="form-control w-25">
+                    <button type="button" class="add-btn mt-1 mb-1" onclick="findAddr()">우편번호</button>
                     <br>
-                    <input id="member_addr" class="text-input form-control" name="useraddr" type="text"
+                    <input id="member_roadaddr" class="text-input form-control" name="addr" type="text"
                            placeholder=" 기본주소" ch><br>
-                    <input id="" class="text-input form-control" type="text" name="useraddr" placeholder=" 상세주소">
+                    <input id="member_addr" class="text-input form-control" type="text" name="addr" placeholder=" 상세주소">
 
                     <div class="text-center mt-3">
                         <button type="submit" id="sign-btn">회원가입</button>

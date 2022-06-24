@@ -14,10 +14,10 @@ import java.util.Optional;
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Member save(Member member);
-    Optional<Member> findByCode(Long code);
+    Optional<Member> findById(Long id);
     List<Member> findAll();
-    Member findById(String id);
-    Optional<Member> findByid(String id);
+    Member findByName(String name);
+    Optional<Member> findByname(String name);
     Member findByNickname(String nickname);
 
 
