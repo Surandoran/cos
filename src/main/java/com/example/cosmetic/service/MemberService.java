@@ -20,6 +20,7 @@ import java.util.Optional;
 
 
 @Service
+@Transactional
 public class MemberService implements UserDetailsService{
 
     private final MemberRepository memberRepository;

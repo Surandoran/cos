@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @SequenceGenerator(
         name = "MEMBER_SEQ_GENERATOR",
-        sequenceName = "member_code",
+        sequenceName = "product_code",
         initialValue = 1,
         allocationSize = 1
 )
@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRODUCT_SEQ_GENERATOR")
     @Column(name = "id")
     private Long id;
     //이름
@@ -38,9 +38,6 @@ public class Product {
     private String volume;
     //평점
     private String Score;
-    //시간
-    private LocalDateTime createdDate;
-    private LocalDateTime modifiedDate;
 
 
     public Product() {

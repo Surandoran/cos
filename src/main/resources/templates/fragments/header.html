@@ -29,6 +29,9 @@
             </div>
         </div>
         <div class="menu-var">
+            <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/list}">게시판글조회</a>
+            <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/board/write}">게시판글쓰기</a>
+            <a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/products}">제품목록</a>
             <a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/members}">회원목록</a>
             <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/members/new}">회원가입</a>
             <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>

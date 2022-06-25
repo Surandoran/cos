@@ -13,23 +13,23 @@
 
 <div layout:fragment="content">
     <main class="container">
-        <form action="/product/new" id="productForm" method="post" th:object="product">
+        <form action="/product/new" id="productForm" method="post">
         <h1 class="sub-title">리뷰 작성</h1>
 
         <!-- 제품정보 -->
-        <div id="PInformation">
+        <div id="PInformation" class="form-group">
             <div id="ProductImage">
                 <img src="/image/크림.png" width="80px" height="80px">
             </div>
             <div id="PText">
                 <h6 id="brandName">닥터지</h6>
-                <h4 id="productName">레드블레미쉬 수분 크림</h4>
+                <h4 id="productName"><input type="text" name="name" value="레드블레미쉬 수분크림"></h4>
             </div>
         </div>
         <hr class="line">
 
         <!-- 평점 -->
-        <div id="score">
+        <div id="score" class="form-group">
             <h6 id="starText">평점을 선택해주세요.</h6>
             <div id="star">
                 <i class="fa-solid fa-star-half-stroke"></i>
@@ -41,7 +41,7 @@
                 <input class="text-input form-control" type="text" name="price" id="productprice"
                        placeholder="가격을 입력하세요"><br>
                 <label>용량</label>
-                <input class="text-input form-control" type="text" name="volum" id="productvolum"
+                <input class="text-input form-control" type="text" name="volume" id="productvolum"
                        placeholder="용량을 입력하세요"><br>
             </div>
         </div>
@@ -70,8 +70,8 @@
 
         <!-- 등록버튼 -->
         <div class="reviewBtn">
-            <a href="#"><button class="green-btn me-5">등록</button></a>
-            <a href="#"><button class="gray-btn">취소</button></a>
+            <a href="#"><button class="green-btn me-5" type="submit">등록</button></a>
+            <a href="#"><button class="gray-btn" type="button">취소</button></a>
         </div>
         </form>
     </main>

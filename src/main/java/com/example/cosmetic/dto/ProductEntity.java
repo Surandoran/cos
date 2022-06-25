@@ -23,7 +23,4 @@ public class ProductEntity {
     private String volume;
     //평점
     private String Score;
-    //시간
-    private LocalDateTime createdDate;
-    private LocalDateTime modifiedDate;
 }

@@ -11,6 +11,7 @@ import java.util.Optional;
 
 
 @Service
+@Transactional
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -42,14 +43,18 @@ public class ProductService {
         if(result.isPresent()){
             return result.get();
         }
-        throw new ProductNotFoundException("Colud not find any users with Product name ");
+        throw new ProductNotFoundException("Colud not find any users with Product name " + id);
     }
 
     //삭제
-    public void deleteById(Long id) throws ProductNotFoundException {
+    public void deleteById(Long id){
         Long count = id;
         if ( count == null || count == 0){
-            throw new ProductNotFoundException("Colud not find any Product with code " + count);
+            try {
+                throw new ProductNotFoundException("삭제되는 제품 코드" + id);
+            } catch (ProductNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         }
         productRepository.deleteById(id);
     }

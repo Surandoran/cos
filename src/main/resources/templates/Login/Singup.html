@@ -156,8 +156,7 @@
 <div layout:fragment="content">
     <main class="container">
 
-        <form class="singup-menu" id="regForm" action="/members/new" method="post" th:object="${member}"
-              onsubmit="return fn_submitChk();">
+        <form class="singup-menu" id="regForm" action="/members/new" method="post" onsubmit="return fn_submitChk();">
 
             <H2 class="text-center mt-5">[[${pageTitle}]]</H2>
             <div class="mt-5 sign-view">
