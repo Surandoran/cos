@@ -29,12 +29,10 @@
             </div>
         </div>
         <div class="menu-var">
-            <button type="button" onclick="location.href='/members'">회원목록</button>
-            <button type="button" onclick="location.href='/members/new'">회원가입</button>
-            <a class="nav-link" sec:authorize="isAnonymous()" >
-                <button type="button" onclick="location.href='/login'">로그인</button>
-            </a>
-            <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{Login/logout}" href="">로그아웃</a>
+            <a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/members}">회원목록</a>
+            <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/members/new}">회원가입</a>
+            <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
+            <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
             <button onclick="location.href='/Search/search'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </nav>

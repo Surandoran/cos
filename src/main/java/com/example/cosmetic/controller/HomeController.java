@@ -8,13 +8,13 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(){
-        return "index";
+        return "Main/home";
     }
 
     @GetMapping("/test")
     public String test(){
-        return "Main/home";
+        return "index";
     }
 
-
 }
+

@@ -36,5 +36,10 @@ public class LoginController {
         return "Login/Update";
     }
 
+    @GetMapping("/logout")
+    public String logout(){
+        return "/logout";
+    }
+
 
 }

@@ -35,20 +35,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
-                authorizeRequests()
+                csrf().disable()
+                .authorizeRequests()
                 // 페이지 권한 설정
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/myinfo").hasRole("MEMBER")
                 .antMatchers("/**").permitAll()
                 .and() // 로그인 설정
                 .formLogin()
-                .loginPage("/user/login")
-                .defaultSuccessUrl("/user/login/result")
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
                 .permitAll()
                 .and() // 로그아웃 설정
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                .logoutSuccessUrl("/user/logout/result")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
                 .and()
                 // 403 예외처리 핸들링

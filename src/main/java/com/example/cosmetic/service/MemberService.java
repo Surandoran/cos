@@ -82,12 +82,15 @@ public class MemberService implements UserDetailsService{
 
         List<GrantedAuthority> authorities = new ArrayList<>();
 
-        if (("admin@example.com").equals(username)) {
+        if (("admin").equals(username)) {
             authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+            System.out.println("어드민로그인성공");
         } else {
             authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
+            System.out.println("멤버로그인성공");
         }
 
         return new User(userEntity.getName(), userEntity.getPw(), authorities);
     }
+
 }
