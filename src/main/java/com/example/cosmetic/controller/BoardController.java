@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -59,6 +60,47 @@ public class BoardController {
     @GetMapping("/board/update")
     public String update(){
         return "update";
+    }
+
+    /**
+     *  게시판 수정화면
+     * @param boardIdx
+     * @param model
+     * @return
+     */
+    @GetMapping("/board/update/{boardIdx}")
+    public String update(@PathVariable Long boardIdx, Model model){
+        log.info("boardIdx={}", boardIdx);
+        Board boardDetail = boardService.getDetail(boardIdx);
+        log.info("boardDetail={}", boardDetail);
+        model.addAttribute("board", boardDetail);
+        return "main/update";
+    }
+
+    /**
+     * 게시판 수정화면
+     * @param board
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/board/update")
+    public Long updateSubmit(@RequestBody Board board){
+        log.info("params={}", board);
+        return boardService.savePost(board);
+    }
+
+    /**
+     * 게시판 삭제기능
+     * @param boardIdxArray
+     * @return
+     */
+
+    @ResponseBody
+    @PostMapping("/board/delete")
+    public List<String> deleteSubmit(@RequestBody List<String> boardIdxArray){
+        log.info("boardIdxArray={}", boardIdxArray);
+        boardService.deleteBoard(boardIdxArray);
+        return boardIdxArray;
     }
 
 }
