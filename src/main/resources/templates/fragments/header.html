@@ -32,7 +32,7 @@
             <button type="button" onclick="location.href='/members'">회원목록</button>
             <button type="button" onclick="location.href='/members/new'">회원가입</button>
             <a class="nav-link" sec:authorize="isAnonymous()" >
-                <button type="button" onclick="location.href='/Login/MemberLogin'">로그인</button>
+                <button type="button" onclick="location.href='/login'">로그인</button>
             </a>
             <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{Login/logout}" href="">로그아웃</a>
             <button onclick="location.href='/Search/search'"><i class="fa-solid fa-magnifying-glass"></i></button>

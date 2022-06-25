@@ -33,6 +33,7 @@ public class Member {
     private String Email;
     private String addr;
     private String gender;
+    private String Role;
 
     public Member() {
 

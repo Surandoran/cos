@@ -1,5 +1,6 @@
 package com.example.cosmetic.service;
 
+import com.example.cosmetic.config.SecurityUser;
 import com.example.cosmetic.dto.Member;
 import com.example.cosmetic.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +10,17 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Transactional
 @Service
+@Component
 public class MemberService implements UserDetailsService{
 
     private final MemberRepository memberRepository;
@@ -70,9 +74,23 @@ public class MemberService implements UserDetailsService{
         memberRepository.deleteById(id);
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        Member member = memberRepository.findByName(username);
+
+        SecurityUser securityUser = new SecurityUser();
+
+        if ( member != null ) {
+            securityUser.setName(member.getName());
+            securityUser.setUsername(member.getName2());     // principal
+            securityUser.setPassword(member.getPw());  // credetial
+
+            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+            authorities.add(new SimpleGrantedAuthority(member.getRole()));
+
+            securityUser.setAuthorities(authorities);
+        }
+
+        return securityUser; // 여기서 return된 UserDetails는 SecurityContext의 Authentication에 등록되어 인증 정보를 갖고 있는다.
     }
 }
