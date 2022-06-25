@@ -7,6 +7,7 @@ import com.example.cosmetic.service.MemberService;
 import com.example.cosmetic.service.UserNotFoundException;
 import lombok.AllArgsConstructor;
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,7 @@ public class MemberController {
     private final MemberService memberService;
     private MemberRepository memberRepository;
 
+    @Autowired
     public MemberController(MemberService memberService, MemberRepository memberRepository) {
         this.memberService = memberService;
         this.memberRepository = memberRepository;
@@ -157,6 +159,7 @@ public class MemberController {
         return "members/memberList";
     }
 
+    //수정
     @GetMapping("/members/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model, RedirectAttributes ra) {
         try {
@@ -175,6 +178,7 @@ public class MemberController {
         }
     }
 
+    //삭제
     @GetMapping("/members/delete/{id}")
     public String deleteMember(@PathVariable("id") Long id, RedirectAttributes ra) {
         try {
@@ -185,5 +189,6 @@ public class MemberController {
         }
         return "redirect:/members";
     }
+
 
 }

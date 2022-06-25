@@ -1,5 +1,6 @@
 package com.example.cosmetic.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -26,6 +27,9 @@ public class Product {
     //이름
     @Column(name = "name")
     private String name;
+    //내용
+    @Column(name = "story")
+    private String story;
     //가격
     @Column(name = "price")
     private String price;
@@ -38,4 +42,8 @@ public class Product {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
+
+    public Product() {
+
+    }
 }

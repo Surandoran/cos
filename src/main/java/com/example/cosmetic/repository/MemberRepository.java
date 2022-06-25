@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Member save(Member member);
@@ -19,5 +18,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     Member findByName(String name);
     Optional<Member> findByname(String name);
     Member findByNickname(String nickname);
+
 
 }

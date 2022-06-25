@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
+
 @Service
 public class MemberService implements UserDetailsService{
 
@@ -94,5 +94,6 @@ public class MemberService implements UserDetailsService{
 
         return new User(userEntity.getName(), userEntity.getPw(), authorities);
     }
+
 
 }
