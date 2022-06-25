@@ -1,7 +1,7 @@
 package com.example.cosmetic.service;
 
-import com.example.cosmetic.config.SecurityUser;
 import com.example.cosmetic.dto.Member;
+import com.example.cosmetic.dto.MemberEntity;
 import com.example.cosmetic.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +20,6 @@ import java.util.Optional;
 
 @Transactional
 @Service
-@Component
 public class MemberService implements UserDetailsService{
 
     private final MemberRepository memberRepository;
@@ -74,23 +73,21 @@ public class MemberService implements UserDetailsService{
         memberRepository.deleteById(id);
     }
 
+
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Member member = memberRepository.findByName(username);
+        Optional<Member> userEntityWrapper = memberRepository.findByname(username);
+        Member userEntity = userEntityWrapper.get();
 
-        SecurityUser securityUser = new SecurityUser();
+        List<GrantedAuthority> authorities = new ArrayList<>();
 
-        if ( member != null ) {
-            securityUser.setName(member.getName());
-            securityUser.setUsername(member.getName2());     // principal
-            securityUser.setPassword(member.getPw());  // credetial
-
-            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-            authorities.add(new SimpleGrantedAuthority(member.getRole()));
-
-            securityUser.setAuthorities(authorities);
+        if (("admin@example.com").equals(username)) {
+            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+        } else {
+            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
         }
 
-        return securityUser; // 여기서 return된 UserDetails는 SecurityContext의 Authentication에 등록되어 인증 정보를 갖고 있는다.
+        return new User(userEntity.getName(), userEntity.getPw(), authorities);
     }
 }

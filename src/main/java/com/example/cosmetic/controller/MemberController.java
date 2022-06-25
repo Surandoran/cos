@@ -5,7 +5,9 @@ import com.example.cosmetic.dto.MemberEntity;
 import com.example.cosmetic.repository.MemberRepository;
 import com.example.cosmetic.service.MemberService;
 import com.example.cosmetic.service.UserNotFoundException;
+import lombok.AllArgsConstructor;
 import org.json.simple.JSONObject;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -40,11 +42,12 @@ public class MemberController {
     @PostMapping(value = "/members/new")
     public String create(MemberEntity memberEntity, RedirectAttributes ra){
         try {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             Member member1 = new Member();
             member1.setName(memberEntity.getName());
             member1.setName2(memberEntity.getName2());
             member1.setId(memberEntity.getId());
-            member1.setPw(memberEntity.getPw());
+            member1.setPw(passwordEncoder.encode(memberEntity.getPw()));
             member1.setNickname(memberEntity.getNickname());
             member1.setEmail(memberEntity.getEmail());
             member1.setAddr(memberEntity.getAddr());
