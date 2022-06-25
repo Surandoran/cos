@@ -23,7 +23,7 @@ public class ProductController {
 
     @GetMapping("/Product/ReviewWrite")
     public String reviewrite(){
-        return "Product/reviewrite";
+        return "Product/ReviewWrite";
     }
 
 }

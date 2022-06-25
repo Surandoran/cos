@@ -65,6 +65,7 @@ public class MemberService implements UserDetailsService{
     }
 
 
+    //삭제
     public void deleteById(Long id){
         Long count = id;
         if ( count == null || count == 0) {
@@ -75,6 +76,7 @@ public class MemberService implements UserDetailsService{
 
 
 
+    //로그인 권한
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Member> userEntityWrapper = memberRepository.findByname(username);

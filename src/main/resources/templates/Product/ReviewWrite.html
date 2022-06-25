@@ -8,7 +8,11 @@
 <th:block layout:fragment="css">
 </th:block>
 <!-- index.html 고유 스크립트 추가 -->
-<th:block layout:fragment="script"> </th:block>
+<th:block layout:fragment="script">
+<script th:inline="javascript">
+
+</script>
+</th:block>
 
 <div layout:fragment="content">
     <main class="container">
@@ -17,14 +21,14 @@
         <!-- 제품정보 -->
         <div id="PInformation">
             <div id="ProductImage">
-                <img src="../image/크림.png" width="80px" height="80px">
+                <img src="/image/크림.png" width="80px" height="80px">
             </div>
             <div id="PText">
                 <h6 id="brandName">닥터지</h6>
                 <h4 id="productName">레드블레미쉬 수분 크림</h4>
             </div>
         </div>
-        <hr id="line">
+        <hr class="line">
 
         <!-- 평점 -->
         <div id="score">
@@ -37,7 +41,7 @@
                 <i class="fa-solid fa-star-half-stroke"></i>
             </div>
         </div>
-        <hr id="line">
+        <hr class="line">
 
         <!-- 내용 입력란  -->
         <div class="reviewContent">

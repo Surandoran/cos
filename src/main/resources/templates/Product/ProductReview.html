@@ -6,9 +6,57 @@
 >
 <!-- index.html 고유 CSS 추가 -->
 <th:block layout:fragment="css">
+<style th:inline="css">
+    .productInfo{
+        display: flex;
+    }
+    .productPicture img{
+        width: 250px;
+        height: 250px;
+    }
+    .productPicture ul{
+        list-style: none;
+        padding: 0px;
+    }
+    .swiper{
+        width: 25%;
+        margin-top: 50px;
+        margin-left: 28%;
+    }
+    .swiper-pagination>span{
+        background-color: lightgray;
+        height: 10px; width: 10px;
+    }
+    .swiper-button-prev{
+        color: gray;
+    }
+    .swiper-button-next{
+        color: gray;
+    }
+    .productContents{
+        position: relative;
+        left: 55%;
+        top: -39%;
+    }
+</style>
 </th:block>
 <!-- index.html 고유 스크립트 추가 -->
-<th:block layout:fragment="script"> </th:block>
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        const swiper = new Swiper('.swiper',{
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                type : 'bullets',
+            },
+            effect : 'fade',
+            speed :1000,
+        });
+    </script>
+</th:block>
 
 <div layout:fragment="content">
     <main class="container">
@@ -21,10 +69,10 @@
             <div class="productPicture">
                 <div id="container" class="swiper">
                     <ul id="banner" class="swiper-wrapper">
-                        <li class="swiper-slide"><a href='#'><img src="/image/크림.png" alt=""></a></li>
-                        <li class="swiper-slide"><a href='#'><img src="/image/선크림.png" alt=""></a></li>
-                        <li class="swiper-slide"><a href='#'><img src="/image/밤.png" alt=""></a></li>
-                        <li class="swiper-slide"><a href='#'><img src="/image/크림.png" alt=""></a></li>
+                        <li class="swiper-slide"><a href='#'><img src="../image/크림.png" alt=""></a></li>
+                        <li class="swiper-slide"><a href='#'><img src="../image/선크림.png" alt=""></a></li>
+                        <li class="swiper-slide"><a href='#'><img src="../image/밤.png" alt=""></a></li>
+                        <li class="swiper-slide"><a href='#'><img src="../image/크림.png" alt=""></a></li>
                     </ul>
                     <div class="swiper-pagination"></div>
                     <div class="swiper-button-prev"></div>
@@ -51,7 +99,7 @@
                         <h5>용량</h5>
                         <h6>25000원</h6>
                     </div>
-                    <div><a href="/Product/ReviewWrite"><button>리뷰작성하기</button></a></div>
+                    <div><a href="../Product/ReviewWrite.html"><button>리뷰작성하기</button></a></div>
 
 
 

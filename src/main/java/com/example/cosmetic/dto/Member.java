@@ -23,7 +23,6 @@ public class Member {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column()
     private String name2;
     @Column(name = "pw")
     private String pw;
