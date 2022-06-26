@@ -1,6 +1,9 @@
 package com.example.cosmetic.repository;
 
+import com.example.cosmetic.dto.Board;
 import com.example.cosmetic.dto.Member;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -18,6 +21,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     Member findByName(String name);
     Optional<Member> findByname(String name);
     Member findByNickname(String nickname);
+
 
 
 }

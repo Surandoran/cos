@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -34,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
         web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**");
         web
                 .ignoring()
-//                .antMatchers(Constants.STATIC_RESOURCES_URL_PATTERS)
+                .antMatchers(Constants.STATIC_RESOURCES_URL_PATTERS)
                 .antMatchers(HttpMethod.GET, "/exception/**");
         super.configure(web);
     }
@@ -52,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
                 .antMatchers("/file-download/**").permitAll()            //파일 다운로드
                 .antMatchers("/Login/**").permitAll()					    //로그인, 회원가입 접속허용
                 .antMatchers("/resource/**/images/**").permitAll()		//이미지
-//                .anyRequest().authenticated() //인증이 되어야함
+                .anyRequest().authenticated() //인증이 되어야함
                 .and() // 로그인 설정
                 .formLogin()
                 .loginPage("/login")
@@ -65,25 +67,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
                 .invalidateHttpSession(true)
                 .and()
                 //세션관리
-//                .sessionManagement()
-//                .maximumSessions(200) 				//세션 허용 갯수
+                .sessionManagement(s -> s
+                .maximumSessions(200) 				//세션 허용 갯수
 //                .expiredUrl(Url.AUTH.LOGIN)		 	//세션 만료시 이동할 페이지
-//                .sessionRegistry(sesionRegistry())
-//                .maxSessionsPreventsLogin(true)	//동시 로그인 차단, false인 경우 기존 세션 만료
+                .sessionRegistry(sesionRegistry())
+                .maxSessionsPreventsLogin(false));	//동시 로그인 차단, false인 경우 기존 세션 만료
                 // 403 예외처리 핸들링
-                .exceptionHandling().accessDeniedPage("/user/denied");
+//                .exceptionHandling().accessDeniedPage("/user/denied");
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
+
         auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
+    }
+
+    @Bean
+    public SessionRegistry sesionRegistry() {
+        return new SpringSecuritySessionRegistImpl();
     }
 
 
     /* 관리자 아이디 파라미터 이름 */
-    public static final String USERNAME_PARAM = "un";
+    public static final String USERNAME_PARAM = "admin";
 
     /* 관리자 비밀번호 파라미터 이름 */
-    public static final String PASSWORD_PARAM = "up";
+    public static final String PASSWORD_PARAM = "1111";
 
 }
