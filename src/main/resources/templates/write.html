@@ -10,11 +10,11 @@
 <!-- index.html 고유 스크립트 추가 -->
 <th:block layout:fragment="script">
     <script th:inline="javascript">
-        //관리자 계정이 아닐경우
-        if($("#authority").val() != "ADMIN"){
-            alert("관리자 계정으로 로그인 바랍니다.");
-            location.href = "/";
-        }
+        // 관리자 계정이 아닐경우
+        // if($("#authority").val() != "ADMIN"){
+        //     alert("관리자 계정으로 로그인 바랍니다.");
+        //     location.href = "/";
+        // }
 
         //파일 현재 필드 갯수
         var fileCount = 0;
@@ -166,7 +166,7 @@
 </th:block>
 
 <div layout:fragment="content">
-    
+
     <article>
         <div class="container" role="main">
             <h2>게시판 글쓰기</h2>
@@ -177,7 +177,9 @@
             <br>
             <div class="mb-3">
                 <label for="regId">작성자</label>
-                <input type="text" class="form-control" id="regId" name="regId" th:if = "${not #strings.isEmpty(session.sessUserInfo)}" th:value="${session.sessUserInfo.userId}" readonly>
+
+<!--                <input type="text" th:name="${id}" id="regId">-->
+                <input type="text" class="form-control" id="regId" name="regId" th:if = "${not #strings.isEmpty(session.sessMemberInfo)}" th:value="${session.sessMemberInfo.MemberId}" readonly>
             </div>
             <br>
             <div class="mb-3">

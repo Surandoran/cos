@@ -48,10 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/Mypage/**").hasRole("MEMBER")
                 .antMatchers("/**").permitAll()
-//                .antMatchers("/board/**").permitAll()
-//                .antMatchers("/file-download/**").permitAll()            //파일 다운로드
-//                .antMatchers("/Login/**").permitAll()					    //로그인, 회원가입 접속허용
-//                .antMatchers("/resource/**/images/**").permitAll()		//이미지
+                .antMatchers("/board/**").permitAll()
+                .antMatchers("/file-download/**").permitAll()            //파일 다운로드
+                .antMatchers("/Login/**").permitAll()					    //로그인, 회원가입 접속허용
+                .antMatchers("/resource/**/images/**").permitAll()		//이미지
 //                .anyRequest().authenticated() //인증이 되어야함
                 .and() // 로그인 설정
                 .formLogin()
@@ -78,5 +78,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
     }
+
+
+    /* 관리자 아이디 파라미터 이름 */
+    public static final String USERNAME_PARAM = "un";
+
+    /* 관리자 비밀번호 파라미터 이름 */
+    public static final String PASSWORD_PARAM = "up";
 
 }
