@@ -19,8 +19,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="memberFile")
+@Table(name= "memberfiles")
 //여기 테이블 생성이안됨.
+//이름 조심
 public class File {
 
     //파일 idx
@@ -41,7 +42,7 @@ public class File {
     private String ext;
 
     //사이즈
-    private Long size;
+    private Long filesize;
 
     private String contentType;
 
@@ -54,7 +55,7 @@ public class File {
         this.logiNm = logiNm;
         this.logiPath = logiPath;
         this.ext = ext;
-        this.size = size;
+        this.filesize = size;
         this.contentType = contentType;
     }
 

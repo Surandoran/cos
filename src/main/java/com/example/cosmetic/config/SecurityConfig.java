@@ -45,15 +45,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
                 csrf().disable()
                 .authorizeRequests()
                 // 페이지 권한 설정
-                .antMatchers("/").permitAll()
-                .antMatchers("/members/**").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/Mypage/**").hasRole("MEMBER")
-                .antMatchers("/board/**").permitAll()
-                .antMatchers("/file-download/**").permitAll()            //파일 다운로드
-                .antMatchers("/Login/**").permitAll()					    //로그인, 회원가입 접속허용
-                .antMatchers("/resource/**/images/**").permitAll()		//이미지
+                .antMatchers("/**").permitAll()
+//                .antMatchers("/board/**").permitAll()
+//                .antMatchers("/file-download/**").permitAll()            //파일 다운로드
+//                .antMatchers("/Login/**").permitAll()					    //로그인, 회원가입 접속허용
+//                .antMatchers("/resource/**/images/**").permitAll()		//이미지
 //                .anyRequest().authenticated() //인증이 되어야함
-                .antMatchers("/").permitAll()
                 .and() // 로그인 설정
                 .formLogin()
                 .loginPage("/login")
@@ -66,12 +65,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //상속받�
                 .invalidateHttpSession(true)
                 .and()
                 //세션관리
-                .sessionManagement()
-                .maximumSessions(200) 				//세션 허용 갯수
+//                .sessionManagement()
+//                .maximumSessions(200) 				//세션 허용 갯수
 //                .expiredUrl(Url.AUTH.LOGIN)		 	//세션 만료시 이동할 페이지
 //                .sessionRegistry(sesionRegistry())
-                .maxSessionsPreventsLogin(true);	//동시 로그인 차단, false인 경우 기존 세션 만료
+//                .maxSessionsPreventsLogin(true)	//동시 로그인 차단, false인 경우 기존 세션 만료
                 // 403 예외처리 핸들링
+                .exceptionHandling().accessDeniedPage("/user/denied");
     }
 
     @Override
