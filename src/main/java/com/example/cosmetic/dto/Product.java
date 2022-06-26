@@ -37,7 +37,7 @@ public class Product {
     @Column
     private String volume;
     //평점
-    private String Score;
+    private String rating;
 
 
     public Product() {

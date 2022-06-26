@@ -27,13 +27,13 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BOARDIDX_SEQ_GENERATOR")
     private Long boardIdx;
 
-    @Column(columnDefinition = "varchar(45) not null comment '타이틀'")
+//    @Column(columnDefinition = "varchar(45) not null comment '타이틀'")
     private String boardTitle;
 
-    @Column(columnDefinition = "TEXT not null comment '내용'")
+//    @Column(columnDefinition = "TEXT not null comment '내용'")
     private String boardContent;
 
-    @Column(columnDefinition = "varchar(45) not null comment '등록자'")
+//    @Column(columnDefinition = "varchar(45) not null comment '등록자'")
     private String regId;
 
     //조회수

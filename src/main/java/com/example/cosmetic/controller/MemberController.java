@@ -65,7 +65,7 @@ public class MemberController {
                 return "members/new";
             }
         }catch (Exception e){
-            System.out.println("아이디 중복으로 에러 발생");
+            System.out.println("아이디 중복으로  에러 발생");
             return "Login/Singup";
         }
     }

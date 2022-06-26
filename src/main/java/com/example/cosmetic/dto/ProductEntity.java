@@ -22,5 +22,5 @@ public class ProductEntity {
     @Column
     private String volume;
     //평점
-    private String Score;
+    private String rating;
 }

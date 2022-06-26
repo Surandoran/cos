@@ -44,7 +44,7 @@ public class ProductController {
             product.setName(productEntity.getName());
             product.setStory(productEntity.getStory());
             product.setPrice(productEntity.getPrice());
-            product.setScore(productEntity.getScore());
+            product.setRating(productEntity.getRating());
             product.setVolume(productEntity.getVolume());
 
             ra.addFlashAttribute("message", "등록성공!");
