@@ -19,27 +19,30 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-
 public class Board {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BOARDIDX_SEQ_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BOARD_SEQ_GENERATOR")
     private Long boardIdx;
 
-//    @Column(columnDefinition = "varchar(45) not null comment '타이틀'")
+    @Column(columnDefinition = "varchar(45) not null comment '타이틀'")
     private String boardTitle;
 
-//    @Column(columnDefinition = "TEXT not null comment '내용'")
+    @Column(columnDefinition = "TEXT not null comment '내용'")
     private String boardContent;
 
-//    @Column(columnDefinition = "varchar(45) not null comment '등록자'")
+    @Column(columnDefinition = "varchar(45) not null comment '등록자'")
     private String regId;
 
     //조회수
     private int viewCount;
 
+    //사용여부
     private String useYn;
+
+    //첨부 파일 개수
+    private int attachCount;
 
     //insert시에 현재시간을 읽어서 저장
     @CreationTimestamp
@@ -48,4 +51,10 @@ public class Board {
     //update시에 현재시간을 읽여서 저장
     @UpdateTimestamp
     private LocalDateTime uptDate;
+
+    @Transient
+    private String fileIdxs;
+
+    @Transient
+    private String deleteFileIdxs;
 }

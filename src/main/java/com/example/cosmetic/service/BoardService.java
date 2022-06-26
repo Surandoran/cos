@@ -1,6 +1,8 @@
 package com.example.cosmetic.service;
 
 import com.example.cosmetic.dto.Board;
+import com.example.cosmetic.dto.BoardFile;
+import com.example.cosmetic.repository.BoardFileRepository;
 import com.example.cosmetic.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,17 +11,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
+@Transactional
 public class BoardService {
 
-    @Autowired
-    BoardRepository boardRepository;
+    private final BoardRepository boardRepository;
+    private final BoardFileRepository boardFileRepository;
+    private final EntityManager em;
 
     /**
      * 게시판 목록 페이징
@@ -54,7 +60,8 @@ public class BoardService {
             return board;
         }
         else{
-            throw new NullPointerException();
+            Board board = new Board();
+            return board;
         }
     }
 
@@ -84,4 +91,33 @@ public class BoardService {
             }
         }
     }
+
+    //게시판 파일 등록
+    @Transactional
+    public void insertBoardFile(Board board) {
+        //파일 등록할게 있을경우만
+        if(board.getFileIdxs() != null) {
+            //파일 등록
+            String fileIdxs = ((String) board.getFileIdxs()).replace("[", "").replace("]", "");
+            String[] fileIdxArray = fileIdxs.split(",");
+
+            for (int i=0; i<fileIdxArray.length; i++) {
+                String fileIdx = fileIdxArray[i].trim();
+                BoardFile boardFile = new BoardFile(board.getBoardIdx(), Long.parseLong(fileIdx),"Y") ;
+                boardFileRepository.save(boardFile);
+            }
+        }
+    }
+
+    //게시판 파일삭제
+    @Transactional
+    public void deleteBoardFile(Long fileId){
+        boardFileRepository.deleteById(fileId);
+    }
+
+    //boardIdx로 해당 게시물 파일리스트 조회
+    public List<BoardFile> selectBoardFile(Long boardIdx){
+        return boardFileRepository.findByBoardIdx(boardIdx);
+    }
+
 }
