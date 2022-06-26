@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="userFile")
+@Table(name="memberFile")
+//여기 테이블 생성이안됨.
 public class File {
 
     //파일 idx
