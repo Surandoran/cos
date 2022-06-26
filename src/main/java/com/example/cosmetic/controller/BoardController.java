@@ -17,50 +17,60 @@ import java.util.List;
 @Slf4j
 public class BoardController {
 
+    @Autowired
     BoardService boardService;
-    BoardRepository boardRepository;
 
     @Autowired
-    public BoardController(BoardService boardService, BoardRepository boardRepository) {
-        this.boardService = boardService;
-        this.boardRepository = boardRepository;
-    }
+    BoardRepository boardRepository;
 
+    /**
+     * 게시판 목록화면
+     * @param session
+     * @param model
+     * @param page
+     * @return
+     */
     @GetMapping("/list")
-    public String list(HttpSession session, Model model, @RequestParam(required = false, defaultValue = "0", value = "page") int page){
+    public String list(HttpSession session, Model model
+            , @RequestParam(required = false, defaultValue = "0", value = "page") int page
+            , @RequestParam(required = false, defaultValue = "", value = "keyword") String keyword){
 
         //불러올 페이지의 데이터 1페이지는 0부터 시작
-        Page<Board> listPage =  boardService.list(page);
+        Page<Board> listPage =  boardService.list(page, keyword);
 
         //총페이지수
         int totalPage = listPage.getTotalPages();
-
         model.addAttribute("board", listPage.getContent());
         model.addAttribute("totalPage", totalPage);
         model.addAttribute("pageNo", page);
+        model.addAttribute("resultDataTotal", listPage.getTotalElements());
+        model.addAttribute("size", listPage.getSize());
+        model.addAttribute("number", listPage.getNumber());
+        model.addAttribute("keyword", keyword);
 
-        return "/list";
+        return "list";
     }
 
+    /**
+     * 게시판 등록화면
+     * @return
+     */
     @GetMapping("/board/write")
     public String write(){
         return "write";
     }
 
-    //게시판 저장
+    /**
+     * 게시판 등록
+     * @param board
+     * @return
+     */
     @ResponseBody
     @PostMapping("/board/write")
-    public Board writeSubmit(@RequestBody Board board){
+    public Long writeSubmit(@RequestBody Board board){
         log.info("params={}", board);
-
-        boardRepository.save(board);
-        return board;
+        return boardService.savePost(board);
     };
-
-    @GetMapping("/board/update")
-    public String update(){
-        return "update";
-    }
 
     /**
      *  게시판 수정화면
@@ -74,11 +84,11 @@ public class BoardController {
         Board boardDetail = boardService.getDetail(boardIdx);
         log.info("boardDetail={}", boardDetail);
         model.addAttribute("board", boardDetail);
-        return "main/update";
+        return "update";
     }
 
     /**
-     * 게시판 수정화면
+     * 게시판 수정
      * @param board
      * @return
      */
@@ -90,7 +100,7 @@ public class BoardController {
     }
 
     /**
-     * 게시판 삭제기능
+     * 게시판 삭제
      * @param boardIdxArray
      * @return
      */

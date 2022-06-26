@@ -17,11 +17,27 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class BoardService {
+
     @Autowired
     BoardRepository boardRepository;
 
-    public Page<Board> list(int page){
-        return boardRepository.findAll(PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIdx")));
+    /**
+     * 게시판 목록 페이징
+     * @param page
+     * @return
+     */
+    public Page<Board> list(int page, String keyword){
+
+        //keyword가 없을경우
+        if(keyword.isEmpty()){
+            return boardRepository.findAllByUseYn(PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "boardIdx")), "Y");
+        }
+
+        //keyword가 있을경우
+        else{
+            return boardRepository.findAllByBoardTitleContainingIgnoreCaseAndUseYn(PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "boardIdx")), keyword, "Y");
+        }
+
     }
 
     /**

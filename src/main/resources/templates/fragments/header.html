@@ -24,6 +24,7 @@
                         <li><a href="/Magazine/CosviewStory">코스뷰 이야기</a></li>
                         <li><a href="/ServiceCenter/CSCenter">고객센터</a></li>
                         <li><a href="/Mypage/My_page">마이 페이지</a></li>
+                        <li><a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/board/update}">게시판글수정</a></li>
                         <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/list}">게시판글조회</a></li>
                         <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/board/write}">게시판글쓰기</a></li>
                         <li><a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/products}">제품목록</a></li>
