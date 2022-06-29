@@ -8,30 +8,99 @@
 <th:block layout:fragment="css">
 </th:block>
 <!-- index.html 고유 스크립트 추가 -->
-<th:block layout:fragment="script"> </th:block>
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        // function find() {
+        //     var inputValue = document.getElementById("findid").value;
+        //     console.log(inputValue)
+        // }
+        const inputid = document.getElementById("findname");
+        const inputemail = document.getElementById("findemail");
+        function fn_submitChk(){
+            // request 파라미터에 userid 를 넣어서 서버단으로 보냄
+            var params = {
+                username: $('#findname').val()
+            }
+
+            $.ajax({
+                url: "/Login/findname", //데이터 주소
+                type: "POST", //보내는방식 get 혹은 post
+                dataType: 'json', //서버로부터 받는 값의 데이터 형식
+                data: params, //보내는 데이터 형식
+
+                // 서버에서 데이터가 넘어오면 success 에 들어옴 이때 result는 서버에서 응답받아서 넘어온 데이터
+
+                success: function (result) {
+
+                    // json 방식으로 넘어온 데이터는 key : value 형식이기 때문에 result.result 로 해야 값을 가져올 수 있음
+                    var idChk = result.result
+                    if (idChk == false) {
+                        $('#idChk').attr("value", "N");
+                        alert("중복된 아이디예염! 다른걸로 ㄱㄱ");
+
+                    }
+                }
+            })
+
+            // request 파라미터에 userid 를 넣어서 서버단으로 보냄
+            var params = {
+                nickname: $('#usernickname').val()
+            }
+
+
+            $.ajax({
+                url: "/Login/findemail",
+                type: "POST",
+                dataType: 'json',
+                data: params,
+
+                success: function (result) {
+
+                    var nickChk = result.result
+                    if (nickChk == false) {
+                        $('#idChk').attr("value", "N");
+                        alert("중복된 닉이예염! 다른걸로 ㄱㄱ");
+
+                    } else if (nickChk == true) {
+                        $('#idChk').attr("value", "Y");
+                        alert("굿 잘지었음 ㄱㄱ")
+
+                    } else if (nickChk == "") {
+                        alert("닉네임은입력하셔야졍;;");
+                    }
+                }
+            })
+        }
+
+    </script>
+
+</th:block>
 
 <div layout:fragment="content">
     <main class="container mt-5 mb-5">
         <div class="text-center mb-3">
-            <h1 style="margin-bottom: 50px; padding-top: 50px;" >아이디 찾기</h1>
-        </div>
+            <h1 style="margin-bottom: 50px; padding-top: 50px;">아이디 찾기</h1>
 
-        <form action="member_new">
+        </div>
+        <form action="/Login/id" method="get" onsubmit="return fn_submitChk();">
             <table style="width: 450px; margin: 0 auto;">
                 <tr class="log-input">
                     <td style="font-size: 25px;">이름</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="name2" id="findname"></td>
                 </tr>
                 <tr class="log-input">
                     <td style="font-size: 25px;">E-mail</td>
-                    <td><input type="email"></td>
+                    <td><input type="email" name="email" id="findemail"></td>
                 </tr>
             </table>
-        </form>
+
         <div class="text-center mt-5">
-            <button class="next-btn">다음</button>
-            <button onclick="location.href='login.html'" class="next-btn" style="background-color: rgb(224, 224, 224);">취소</button>
+            <button type="submit" class="next-btn">다음</button>
+            <button type="button" onclick="location.href='login.html'" class="next-btn" style="background-color: rgb(224, 224, 224);">
+                취소
+            </button>
         </div>
+        </form>
     </main>
 </div>
 </html>
